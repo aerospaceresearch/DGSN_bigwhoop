@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<groundstation>	
+	<!-- Please provide a "rough" location (Mandatory Baseline) -->
+	<!-- Find your location on http://maps.google.com -->
+	<gs_location_long>123.456E</gs_location_long>
+	<gs_location_lat>12.34N</gs_location_lat>
+	<gs_location_alt_meter>432.1</gs_location_alt_meter>
+	
+	<!-- Tell us a bit about your ground station (Optional) -->
+	<gs_name>n0d3 z3r0</gs_name>
+	<gs_info>Hello World. Space Rocks!</gs_info>
+	<gs_info_url>www.AerospaceResearch.net</gs_info_url>
+	
+	<!-- For each sensor, add one block (Optional) -->
+	<sensor id="1000">
+		<sen_name>RTL_SDR XYZ Name</sen_name>
+		<sen_usbport>1</sen_usbport>
+		<sen_hw_ppm>100</sen_hw_ppm>
+		<sen_hw_modified>1</sen_hw_modified>
+		<sen_hw_convertiondown>0</sen_hw_convertiondown>
+		<sen_hw_convertionup>0</sen_hw_convertionup>
+		<sen_antenna>standard</sen_antenna>
+	</sensor>
+</groundstation>

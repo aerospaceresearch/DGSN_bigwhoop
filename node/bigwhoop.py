@@ -1,119 +1,191 @@
-import multiprocessing
-from multiprocessing import Queue, Manager
-import subprocess
-import time
+#!/usr/bin/python
+
+# thank you for those great libs!
+from rtlsdr import RtlSdr
+from rtlsdr import librtlsdr
 import numpy as np
-import os
-import sys
+from xml.dom import minidom
 
-def do_smth(i,input, frequency):
-    #in_file_iq_stream = np.fromfile(open(out_file_iq_stream, mode="rb"), dtype=np.uint8)
-    rf_iq_stream = bin_to_complex(input)
-    rf_iq_stream -= np.ones_like(rf_iq_stream) * complex(127, 127)
-    mean = np.mean(np.abs(rf_iq_stream))
-    max = np.max(np.abs(rf_iq_stream))
-    #print i, frequency, max, mean
-    return [frequency, max, mean]
+'''
+BigWhoop...
+will measure everything what is happening in the radio-frequency spectrum,
+globally, continously, with your help!
+'''
 
-def worker(workerid, bands, q_sdr):
-    ## check for existing raw file of the previous run
 
-    pathname = os.path.dirname(sys.argv[0])
-    rtlsdr_execution_link = pathname+'/rtl_sdr/x64/rtl_sdr.exe'
+'''
+starting the sdr-device and let it read out a number of samples
+'''
+def start_sdr(scan_frequency, scan_n_samples, sdr):
+    # configure device
+    # sdr.sample_rate = scan_samplerate  # Hz
+    sdr.center_freq = scan_frequency     # Hz
+    # sdr.freq_correction = 60   # PPM
+    # sdr.gain = 'auto'
+    # sdr.gain = 20
+    result = sdr.read_samples(scan_n_samples)
+    return result
 
-    for band in range(len(bands)):
-        frequency = bands[band]
-        n_samples = 3000000
-        # recording the samples with rtlsdr devices
-        dsp = start_recording_with_rtl_sdr(rtlsdr_execution_link, '-d '+str(workerid), '-f '+str(frequency), '-s 2048000','-n '+str(n_samples), '-g 28')
+'''
+this is a a veeeeery simple spectrum analyzer hopping each
+frequency to get the full spectrum that is possible with
+"ezcap USB 2.0 DVB-T/DAB/FM dongle", more devices will follow
+'''
+def analyze_full_spectrum_basic(device_number):
+    print "you use a", librtlsdr.rtlsdr_get_device_name(device_number)
 
-        # in case of droped frames, or other strange input, it should be avoided to pass those values to processing
-        if len(dsp) <= n_samples*2 and len(dsp) > 0:
-            # do a simple processing to put a serial stdout into the needed I/Q stream
-            print "some output", workerid, frequency, dsp, len(dsp), np.mean(dsp), np.max(dsp), np.min(dsp)
-            result = dsp[::2] + complex(0,1)*dsp[1::2]
-            result -= np.ones_like(result) * complex(127, 127)
-            mean = np.mean(np.abs(result))
-        else:
-            print "with device", workerid, "went something wrong at frequency of", frequency
+    scan_samplerate = 2000*1024
+    scan_n_samples = scan_samplerate*1
 
-    print "finished all bands. leave worker",workerid
+    # create object and start rtl-sdr device.
+    # if more than one device, select it by device_number
+    sdr = RtlSdr(device_index=device_number)
 
-def checking_hw():
-    # checking if any of the listed hw is plugged in
-    # in future, there could also be other sdr hw being called from here
-    return call_rtl_sdr()
+    # configure device
+    sdr.sample_rate = scan_samplerate
+    # sdr.freq_correction = 60   # PPM
+    # sdr.gain = 'auto'
+    sdr.gain = 20
 
-def call_rtl_sdr():
-    # calling any rtl_sdr based hw that is connected to the PC
-    # http://www.rtl-sdr.com
 
-    pathname = os.path.dirname(sys.argv[0])
-    rtlsdr_execution_link = pathname+'/rtl_sdr/x64/rtl_sdr.exe'
+    result_frequency = []
+    result_mean_amplitude = []
+    result_max_amplitude = []
 
-    p = subprocess.Popen([rtlsdr_execution_link, '-d 0', '-f 107700000', '-n 2', '-g 28', '-'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    # reading in the stdout
-    read_stdin = p.communicate()[1]
-    print read_stdin
+    for scan_frequency in range(task_freq_scanstart[device_number], task_freq_scanend[device_number], scan_samplerate):
+        sdr_iq_stream = start_sdr(scan_frequency, scan_n_samples, sdr)
+        sdr_iq_stream = np.abs(sdr_iq_stream)
+        mean = np.mean(sdr_iq_stream)
+        max = np.max(sdr_iq_stream)
+        progressbar = float(scan_frequency-task_freq_scanstart[device_number])/(task_freq_scanend[device_number]-task_freq_scanstart[device_number])
+        print progressbar, scan_frequency, mean, max
 
-    hw_details_id = []
-    hw_details_name = []
+        result_frequency.append(scan_frequency)
+        result_mean_amplitude.append(mean)
+        result_max_amplitude.append(max)
 
-    hw_available = 0
-    hw_number_parsing_start = read_stdin.find("Found ")
-    hw_number_parsing_end = read_stdin.find("device(s):")
-    if hw_number_parsing_start > -1:
-        hw_available = np.int(read_stdin[hw_number_parsing_start+6:hw_number_parsing_end])
+        # creating the progress bar file used by BOINC.
+        # 0.0 = 0%, 1.0 = 100% ready
+        # only writing the last progress into the file
+        f = open('progressbar.csv', 'w+')
+        f.write(str(progressbar))
+        f.close()
 
-    for i in range(hw_available):
-        number = str(i)+":"
-        hw_details_id.append(i)
-        hw_details_name.append(read_stdin[read_stdin.find(number)+len(number)+2:read_stdin.find("\n", read_stdin.find(number)+1)])
-    return hw_available
+    sdr.close()
+    return [result_frequency, result_mean_amplitude, result_max_amplitude]
 
-def start_recording_with_rtl_sdr(rtlsdr_execution_link, device, frequency, sample, samples, gain):
-    print "recording with", device,"at",frequency, "Hz"
-    rtl_sdr_cmds =[rtlsdr_execution_link, device, frequency, sample, samples, gain, "-"]
-    p = subprocess.Popen(rtl_sdr_cmds, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    out = p.communicate()[0]
-    print "with device", device,"there are", len(out),"inputs in stdout"
-    return (np.fromstring(out, dtype=np.uint8))
+'''
+shortening just in case the input is too long. so people can include their
+infos, but not too much
+'''
+def shortening_string(input):
+    length = len(input)
+    if length > 64:
+        length = 64
+    print input[:length]
+    return input[:length]
+
+def load_groundstation_config():
+    doc = minidom.parse("set_your_groundstation_config.xml")
+
+    global gs_meta, gs_location
+    gs_meta = []
+    gs_location = []
+
+    # doc.getElementsByTagName returns NodeList
+    gs_meta.append(shortening_string(doc.getElementsByTagName("gs_name")[0].firstChild.data))
+    gs_meta.append(shortening_string(doc.getElementsByTagName("gs_info")[0].firstChild.data))
+    gs_meta.append(shortening_string(doc.getElementsByTagName("gs_info_url")[0].firstChild.data))
+
+    gs_location.append(doc.getElementsByTagName("gs_location_long")[0].firstChild.data)
+    gs_location.append(doc.getElementsByTagName("gs_location_lat")[0].firstChild.data)
+    gs_location.append(doc.getElementsByTagName("gs_location_alt_meter")[0].firstChild.data)
+
+    sensors = doc.getElementsByTagName("sensor")
+    for sensor in sensors:
+        sid = sensor.getAttribute("id")
+        sen_name = sensor.getElementsByTagName("sen_name")[0]
+        sen_usbport = sensor.getElementsByTagName("sen_usbport")[0]
+        #print("id:%s, Sensor Name:%s, Sensor USB Port:%s" %
+        #      (sid, sen_name.firstChild.data, sen_usbport.firstChild.data))
+
+
+'''
+loading in the BOINC ready work unit data chunk.
+this is currently xml, because it is human readable and the user will see, what is done
+on the computer and scanned in the spectrum.
+'''
+def load_workunit():
+    doc = minidom.parse("workunit.xml")
+
+    global sid, task_durationmin, task_freq_scanstart,task_freq_scanend, task_analysis_mode, task_hw_setting_samplerate, task_hw_setting_gain, task_hw_setting_nsamples
+    sid = []
+    task_durationmin = []
+    task_freq_scanstart = []
+    task_freq_scanend = []
+    task_analysis_mode = []
+    task_hw_setting_samplerate = []
+    task_hw_setting_gain = []
+    task_hw_setting_nsamples = []
+
+    # doc.getElementsByTagName returns NodeList
+    wu_info = doc.getElementsByTagName("wu_info")[0]
+    print("Workunit Info:%s" %
+           (wu_info.firstChild.data))
+
+    tasks = doc.getElementsByTagName("task")
+
+    for task in tasks:
+        sid.append(int(task.getAttribute("id")))
+        task_durationmin.append(int(task.getElementsByTagName("task_durationmin")[0].firstChild.data))
+        task_freq_scanstart.append(int(task.getElementsByTagName("task_freq_scanstart")[0].firstChild.data))
+        task_freq_scanend.append(int(task.getElementsByTagName("task_freq_scanend")[0].firstChild.data))
+        task_analysis_mode = task.getElementsByTagName("task_analysis_mode")[0]
+        task_hw_setting_samplerate.append(int(task.getElementsByTagName("task_hw_setting_samplerate")[0].firstChild.data))
+        task_hw_setting_gain.append(int(task.getElementsByTagName("task_hw_setting_gain")[0].firstChild.data))
+        task_hw_setting_nsamples.append(int(task.getElementsByTagName("task_hw_setting_nsamples")[0].firstChild.data))
+
+'''
+writing the output of the analysis.
+it is js for now and will be specified in the next team meeting
+'''
+def writing_output(result):
+    f = open("result.js", "w+")
+    f.write("meta tbd\n")
+    f.write("data tbd\n")
+    f.write(str(result))
+    f.close
+
+    '''import matplotlib.pyplot as plt
+    plt.plot(result[0],result[1])
+    plt.plot(result[0],result[2])
+    plt.ylabel('some numbers')
+    plt.show()'''
+
+'''
+let's start here.
+'''
+def main():
+    if librtlsdr.rtlsdr_get_device_count() > 0:
+        print "loading groundstation config data..."
+        load_groundstation_config()
+        print gs_meta
+        print gs_location
+
+        print "loading the workunit data"
+        load_workunit()
+        print "scanning spectrum is in between", task_freq_scanstart, "and", task_freq_scanend
+
+        print "starting sdr-device..."
+        print "for now, only one device is used. Soon, more..."
+        device_number = 0
+        result = analyze_full_spectrum_basic(device_number)
+
+        writing_output(result)
+    else:
+        print "no sdr-device found"
+
+    print "thank you for helping"
 
 if __name__ == '__main__':
-
-    # checking if and how many rtladr devices are connected
-    rtlsdr_devices = checking_hw()
-    print "there are",rtlsdr_devices,"rtlsdr devices attached to your pc"
-
-
-    # preparing the monitoring spectrum
-    freq_max = 2000000000
-    freq_min = 40000000
-    samplerate = 2048000
-
-    print "splitting the spectrum into ",int((freq_max-freq_min)/samplerate)," chunks for the spektrum monitoring"
-    print ""
-
-    bands = []
-    for j in range(rtlsdr_devices):
-        part = []
-        for i in range(freq_min,freq_max,samplerate):
-        #for i in range(freq_max/rtlsdr_devices*j,freq_max/rtlsdr_devices+freq_max/rtlsdr_devices*j,samplerate):
-            part.append(i)
-        bands.append(part)
-
-
-    # starting the monitoring
-    manager = Manager()
-    q_sdr = manager.dict()
-    jobs = []
-
-    print "starting ", rtlsdr_devices," workers. one for each rtlsdr device"
-
-    for workers in range(rtlsdr_devices):
-        p = multiprocessing.Process(target=worker, args=(workers,bands[workers],q_sdr))
-        jobs.append(p)
-        p.start()
-
-    for proc in jobs:
-        proc.join()
+    main()
