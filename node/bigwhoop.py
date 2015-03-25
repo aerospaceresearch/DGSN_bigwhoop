@@ -5,6 +5,9 @@ from rtlsdr import RtlSdr
 from rtlsdr import librtlsdr
 import numpy as np
 from xml.dom import minidom
+import time
+import pickle
+import os
 
 '''
 BigWhoop...
@@ -34,8 +37,8 @@ frequency to get the full spectrum that is possible with
 def analyze_full_spectrum_basic(device_number):
     print "you use a", librtlsdr.rtlsdr_get_device_name(device_number)
 
-    scan_samplerate = 2000*1024
-    scan_n_samples = scan_samplerate*1
+    scan_samplerate = task_hw_setting_samplerate[device_number]
+    scan_n_samples = task_hw_setting_nsamples[device_number]
 
     # create object and start rtl-sdr device.
     # if more than one device, select it by device_number
@@ -67,6 +70,7 @@ def analyze_full_spectrum_basic(device_number):
         # creating the progress bar file used by BOINC.
         # 0.0 = 0%, 1.0 = 100% ready
         # only writing the last progress into the file
+        # notice: this is only working for one scan. It does not include the scan duration yet!
         f = open('progressbar.csv', 'w+')
         f.write(str(progressbar))
         f.close()
@@ -145,6 +149,14 @@ def load_workunit():
         task_hw_setting_gain.append(int(task.getElementsByTagName("task_hw_setting_gain")[0].firstChild.data))
         task_hw_setting_nsamples.append(int(task.getElementsByTagName("task_hw_setting_nsamples")[0].firstChild.data))
 
+
+def dump_savepoint_file(filename, result, timer):
+    pickle.dump( [timer,result], open( filename, "wb" ) )
+
+def load_savepoint_file(filename):
+    input = pickle.load( open( filename, "rb" ) )
+    return input[0], input[1]
+
 '''
 writing the output of the analysis.
 it is js for now and will be specified in the next team meeting
@@ -156,32 +168,60 @@ def writing_output(result):
     f.write(str(result))
     f.close
 
-    '''import matplotlib.pyplot as plt
-    plt.plot(result[0],result[1])
-    plt.plot(result[0],result[2])
-    plt.ylabel('some numbers')
-    plt.show()'''
-
 '''
 let's start here.
 '''
 def main():
+    print "loading groundstation config data..."
+    load_groundstation_config()
+    print gs_meta
+    print gs_location
+
+    print "loading the workunit data"
+    load_workunit()
+
+    filename_savepoint = "savepoint.p"
+    if os.path.exists(filename_savepoint):
+        print "loading savepoints"
+
+    result = []
+
+    print "scanning spectrum is in between", task_freq_scanstart, "and", task_freq_scanend
     if librtlsdr.rtlsdr_get_device_count() > 0:
-        print "loading groundstation config data..."
-        load_groundstation_config()
-        print gs_meta
-        print gs_location
-
-        print "loading the workunit data"
-        load_workunit()
-        print "scanning spectrum is in between", task_freq_scanstart, "and", task_freq_scanend
-
         print "starting sdr-device..."
         print "for now, only one device is used. Soon, more..."
         device_number = 0
-        result = analyze_full_spectrum_basic(device_number)
 
+        # setting the scan timer
+        # and loading the saved data to start from there
+        if os.path.exists(filename_savepoint):
+            time_counter, result = load_savepoint_file(filename_savepoint)
+            print time_counter
+            print result
+        else:
+            time_counter = task_durationmin[device_number]
+
+
+        # start the scanning cycle with time and frequencies.
+        # currently, only time base can be resumed.
+        # import matplotlib.pyplot as plt
+        while time_counter > 0:
+            time_start = time.time()
+
+            result.append(analyze_full_spectrum_basic(device_number))
+            time_counter = time_counter - (time.time() - time_start)
+            dump_savepoint_file(filename_savepoint, result, time_counter)
+
+            # plt.plot(result[-1][0],result[-1][1])
+            # plt.plot(result[-1][0],result[-1][2])
+            print result
+        # plt.ylabel('some numbers')
+        # plt.show()
+
+        #wrapping and cleaning up
         writing_output(result)
+        os.remove(filename_savepoint)
+
     else:
         print "no sdr-device found"
 
