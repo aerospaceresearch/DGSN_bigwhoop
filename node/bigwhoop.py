@@ -150,10 +150,10 @@ def load_workunit():
         task_hw_setting_nsamples.append(int(task.getElementsByTagName("task_hw_setting_nsamples")[0].firstChild.data))
 
 
-def dump_savepoint_file(filename, result, timer):
+def boinc_dump_savepoint_file(filename, result, timer):
     pickle.dump( [timer,result], open( filename, "wb" ) )
 
-def load_savepoint_file(filename):
+def boinc_load_savepoint_file(filename):
     input = pickle.load( open( filename, "rb" ) )
     return input[0], input[1]
 
@@ -167,6 +167,38 @@ def writing_output(result):
     f.write("data tbd\n")
     f.write(str(result))
     f.close
+
+'''
+creating a dictionary for all the output data
+'''
+def create_out_structure():
+    meta = {}
+    meta['client'] = {}
+    meta['client']['id'] = 'hash value'
+    meta['client']['name'] = 'NodeZero'
+    meta['client']['url'] = 'www.AerospaceResearch.net'
+
+    meta['client']['sensor'] = {}
+    meta['client']['sensor']['id'] = 0
+    meta['client']['sensor']['name'] = 'generic sdr device'
+    meta['client']['sensor']['ppm'] = 0
+
+    meta['sw'] = {}
+    meta['sw']['version'] = 0
+    meta['sw']['os'] = 'WinLinuxOS'
+    meta['sw']['bit'] = '32bit64bit'
+
+    meta['geolocation'] = {}
+    meta['geolocation']['user_input'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    meta['geolocation']['ipgeo'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    meta['geolocation']['gps'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    meta['geolocation']['adbs'] =  {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+
+    data = {}
+    data['mode'] = 'analyze_full_spectrum_basic'
+    data['dataset'] = {}
+
+    return {'meta' : meta, 'data' : data}
 
 '''
 let's start here.
@@ -195,7 +227,7 @@ def main():
         # setting the scan timer
         # and loading the saved data to start from there
         if os.path.exists(filename_savepoint):
-            time_counter, result = load_savepoint_file(filename_savepoint)
+            time_counter, result = boinc_load_savepoint_file(filename_savepoint)
             print time_counter
             print result
         else:
@@ -210,13 +242,13 @@ def main():
 
             result.append(analyze_full_spectrum_basic(device_number))
             time_counter = time_counter - (time.time() - time_start)
-            dump_savepoint_file(filename_savepoint, result, time_counter)
+            boinc_dump_savepoint_file(filename_savepoint, result, time_counter)
 
-            # plt.plot(result[-1][0],result[-1][1])
-            # plt.plot(result[-1][0],result[-1][2])
+            #plt.plot(result[-1][0],result[-1][1])
+            #plt.plot(result[-1][0],result[-1][2])
             print result
-        # plt.ylabel('some numbers')
-        # plt.show()
+        #plt.ylabel('some numbers')
+        #plt.show()
 
         #wrapping and cleaning up
         writing_output(result)
