@@ -1,5 +1,5 @@
 PRO = simplesrv
-SRC = main.cpp parser.cpp
+SRC = main.cpp parser.cpp server.cpp PracticalSocket.cpp
 OBJ = ${SRC:.cpp=.o}
 
 INCS =
