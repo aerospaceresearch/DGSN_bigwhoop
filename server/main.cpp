@@ -1,35 +1,13 @@
 //#include <istream>
 //#include <fstream>
 //#include <cstdlib>
-#include <iostream>
-#include <cstdlib>
+//#include <iostream>
+//#include <cstdlib>
 
 #include "parser.hpp"
-#include "server.hpp"
-
-#include "PracticalSocket.hpp"
 
 
-int main(int argc, char *argv[]) {
-  if (argc != 2) {
-    cerr << "Usage: " << argv[0] << " <Server Port>" << endl;
-    exit(1);
-  }
-
-  unsigned short echoServPort = atoi(argv[1]);
-
-  try {
-    TCPServerSocket servSock(echoServPort);
-
-    for (;;) {
-      HandleTCPClient(servSock.accept());
-    }
-  } catch (SocketException &e) {
-    cerr << e.what() << endl;
-    exit(1);
-  }
-  // NOT REACHED
-
+int main(int argc, char** argv) {
   return EXIT_SUCCESS;
 }
 
