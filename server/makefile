@@ -1,11 +1,11 @@
 PRO = simplesrv
-SRC = main.cpp parser.cpp server.cpp PracticalSocket.cpp
+SRC = main.cpp parser.cpp log.cpp
 OBJ = ${SRC:.cpp=.o}
 
-INCS =
-LIBS = -ljsoncpp
+INCS = -I/usr/local/include/soci
+LIBS = -ljsoncpp -lsoci_core -lsoci_sqlite3 -Wl,-rpath=/usr/local/lib64/
 CFLAGS = -std=c99 -Os
-CPPFLAGS = -std=c++11 -Os ${INCS} -g
+CPPFLAGS = -std=c++11 -Os ${INCS} -g -Wunused
 LDFLAGS = ${LIBS}
 CC = g++
 

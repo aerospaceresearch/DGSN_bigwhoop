@@ -1,6 +1,11 @@
-#include "parser.hpp"
+#include <soci.h>
+#include <sqlite3/soci-sqlite3.h>
 
-#include <iostream> // TODO: debug
+#include <sstream>
+
+
+#include "log.hpp"
+#include "parser.hpp"
 
 
 Parser::Parser(std::istream& input)
@@ -16,5 +21,9 @@ void Parser::parse(std::istream& input)
 
 void Parser::debugPrintJson() const
 {
-  std::cout << root_;
+  std::stringstream sstr;
+  sstr << root_;
+  //log::write(log::verbose, "parsing JSON-Object: %s---\n",
+  //           sstr.str().c_str());
 }
+

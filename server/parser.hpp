@@ -16,3 +16,4 @@ class Parser
 
     Json::Value root_;
 };
+
