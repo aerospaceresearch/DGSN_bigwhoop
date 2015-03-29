@@ -48,28 +48,32 @@ static void db_init(soci::session& sql)
   log::write(log::debug, "  database initialization ...\n");
 
   if(table_exists(sql, "version")) {
-    int v_major, v_minor, v_revision;
+    int v_major, v_minor;
     sql << "SELECT major FROM version", soci::into(v_major);
     sql << "SELECT minor FROM version", soci::into(v_minor);
-    sql << "SELECT revision FROM version", soci::into(v_revision);
-    log:: write(log::debug, "    database found: v%u.%u.%u\n",
-      v_major, v_minor, v_revision);
+    log:: write(log::debug, "    database found: v%u.%u\n",
+      v_major, v_minor);
     if(VERSION_MAJOR != v_major ||
-       VERSION_MINOR != v_minor ||
-       VERSION_REVISION != v_revision) {
-      log::write(log::warning, "    [Warning] Version mismatch between parser and database\n");
+       VERSION_MINOR != v_minor) {
+      log::write(log::warning,
+          "    [Warning] Version mismatch between parser and database\n");
     }
   } else {
     sql << "CREATE TABLE IF NOT EXISTS version(major INTEGER, "
-      "minor INTEGER, revision INTEGER);";
-    sql << "INSERT INTO version VALUES(:v_major,:v_minor,:v_revision)",
-      soci::use(VERSION_MAJOR), soci::use(VERSION_MINOR),
-      soci::use(VERSION_REVISION);
-    log:: write(log::debug, "    created database: v%u.%u.%u\n",
-      VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION);
+      "minor INTEGER);";
+    sql << "INSERT INTO version VALUES(:v_major,:v_minor)",
+      soci::use(VERSION_MAJOR), soci::use(VERSION_MINOR);
+    log:: write(log::debug, "    created database: v%u.%u\n",
+      VERSION_MAJOR, VERSION_MINOR);
   }
 
-  //sql << "CREATE TABLE IF NOT EXISTS data(Id INTEGER);";
+  if(table_exists(sql, "data")) {
+    log:: write(log::verbose, "    data found\n");
+  } else {
+    // TODO: Create proper data table
+    sql << "CREATE TABLE IF NOT EXISTS data(Id INTEGER);";
+    log:: write(log::verbose, "    data table created\n");
+  }
 
   log::write(log::debug, "  database initialized\n");
 }
