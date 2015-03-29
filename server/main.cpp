@@ -84,6 +84,8 @@ std::string get_ext(std::string path)
  */
 int main(int argc, char** argv)
 {
+  int result = EXIT_SUCCESS;
+
   greeting();
   std::filebuf fb;
   if(argc < 2 ||
@@ -101,11 +103,12 @@ int main(int argc, char** argv)
       }
     } catch (const std::exception & exception) {
       log::write(log::fatal, "[Error] %s\n", exception.what());
+      result = EXIT_FAILURE;
     }
   }
   valediction();
 
-  return EXIT_SUCCESS;
+  return result;
 }
 
 //int main(int argc, char** argv)
