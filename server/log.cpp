@@ -1,3 +1,5 @@
+#include "main.hpp"
+
 #include "log.hpp"
 
 bool log::m_bInitialised;
@@ -29,6 +31,6 @@ void log::checkInit() noexcept
 
 void log::init() noexcept
 {
-    setLevel(log::all);
+    setLevel(LOG_LEVEL);
 }
 

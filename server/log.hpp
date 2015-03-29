@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cstdio>
 #include <cstdarg>
 
@@ -17,7 +19,7 @@ class log
     ~log() = delete;
     log& operator= (const log&) = delete;
     log& operator= (const log&&) = delete;
-    
+
     static bool m_bInitialised;
     static int  m_nLevel;
 };
