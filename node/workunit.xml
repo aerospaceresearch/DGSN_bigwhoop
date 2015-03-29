@@ -11,6 +11,6 @@
 		<task_analysis_mode>0</task_analysis_mode>
 		<task_hw_setting_samplerate>2048000</task_hw_setting_samplerate>
 		<task_hw_setting_gain>30</task_hw_setting_gain>
-		<task_hw_setting_nsamples>3000000</task_hw_setting_nsamples>
+		<task_hw_setting_nsamples>1024000</task_hw_setting_nsamples>
 	</task>
 </workunit>

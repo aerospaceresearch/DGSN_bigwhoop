@@ -8,6 +8,7 @@ from xml.dom import minidom
 import time
 import pickle
 import os
+import json
 
 '''
 BigWhoop...
@@ -25,7 +26,7 @@ def start_sdr(scan_frequency, scan_n_samples, sdr):
     sdr.center_freq = scan_frequency     # Hz
     # sdr.freq_correction = 60   # PPM
     # sdr.gain = 'auto'
-    # sdr.gain = 20
+    sdr.gain = 28
     result = sdr.read_samples(scan_n_samples)
     return result
 
@@ -50,12 +51,20 @@ def analyze_full_spectrum_basic(device_number):
     # sdr.gain = 'auto'
     sdr.gain = 20
 
-
+    result_timestamp = []
+    result_geo_lon = []
+    result_geo_lat = []
+    result_geo_alt = []
     result_frequency = []
     result_mean_amplitude = []
     result_max_amplitude = []
 
     for scan_frequency in range(task_freq_scanstart[device_number], task_freq_scanend[device_number], scan_samplerate):
+        result_timestamp.append(time.time())
+        result_geo_lon.append(180.0)
+        result_geo_lat.append(90.0)
+        result_geo_alt.append(0.0)
+
         sdr_iq_stream = start_sdr(scan_frequency, scan_n_samples, sdr)
         sdr_iq_stream = np.abs(sdr_iq_stream)
         mean = np.mean(sdr_iq_stream)
@@ -76,7 +85,7 @@ def analyze_full_spectrum_basic(device_number):
         f.close()
 
     sdr.close()
-    return [result_frequency, result_mean_amplitude, result_max_amplitude]
+    return [result_timestamp, result_frequency, result_mean_amplitude, result_max_amplitude, result_geo_lon, result_geo_lat, result_geo_alt]
 
 '''
 shortening just in case the input is too long. so people can include their
@@ -89,6 +98,11 @@ def shortening_string(input):
     print input[:length]
     return input[:length]
 
+'''
+Loading in the ground station data.
+Optionally, the user can put in data in there to provide additional information about his gs set up.
+The only mandatory information is here to put in his geo location (long, lat, alt), but this will also be checked.
+'''
 def load_groundstation_config():
     doc = minidom.parse("set_your_groundstation_config.xml")
 
@@ -150,6 +164,11 @@ def load_workunit():
         task_hw_setting_nsamples.append(int(task.getElementsByTagName("task_hw_setting_nsamples")[0].firstChild.data))
 
 
+'''
+In case of a hard shut off/down of the computer and software, the software will dump and resume from a
+savepoint file that is performed here.
+It is a simple python pickle.
+'''
 def boinc_dump_savepoint_file(filename, result, timer):
     pickle.dump( [timer,result], open( filename, "wb" ) )
 
@@ -161,11 +180,10 @@ def boinc_load_savepoint_file(filename):
 writing the output of the analysis.
 it is js for now and will be specified in the next team meeting
 '''
-def writing_output(result):
+def writing_output(container):
+    getout = (json.dumps(container, sort_keys=True, indent=4))
     f = open("result.js", "w+")
-    f.write("meta tbd\n")
-    f.write("data tbd\n")
-    f.write(str(result))
+    f.write(getout)
     f.close
 
 '''
@@ -188,17 +206,28 @@ def create_out_structure():
     meta['sw']['os'] = 'WinLinuxOS'
     meta['sw']['bit'] = '32bit64bit'
 
-    meta['geolocation'] = {}
-    meta['geolocation']['user_input'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    meta['geolocation']['ipgeo'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    meta['geolocation']['gps'] = {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    meta['geolocation']['adbs'] =  {'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-
     data = {}
+    data['geolocation'] = {}
+    data['geolocation']['user_input'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    data['geolocation']['ipgeo'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    data['geolocation']['gps'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    data['geolocation']['adsb'] = {'time' : 0.0,'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
     data['mode'] = 'analyze_full_spectrum_basic'
     data['dataset'] = {}
 
     return {'meta' : meta, 'data' : data}
+
+'''
+here, the json putput is stored in a json table for the data-set field.
+this is still specific and needs to be changed for other functions!
+the style is based on this for now http://www.patrick-wied.at/static/heatmapjs/example-heatmap-googlemaps.html
+'''
+def creating_json_data(input):
+    out = []
+    for k in range(len(input)):
+        for l in range(len(input[k][0])):
+            out.append({'timestamp' : input[k][0][l], 'frequency' : input[k][1][l], 'mean_amplitude' : input[k][2][l], 'max_amplitude' : input[k][3][l], 'lon' : input[k][4][l], 'lat' : input[k][5][l], 'alt' : input[k][6][l]})
+    return out
 
 '''
 let's start here.
@@ -233,6 +262,9 @@ def main():
         else:
             time_counter = task_durationmin[device_number]
 
+        # preparation of the output structure as json for everything meta and data
+        container = create_out_structure()
+
 
         # start the scanning cycle with time and frequencies.
         # currently, only time base can be resumed.
@@ -244,14 +276,18 @@ def main():
             time_counter = time_counter - (time.time() - time_start)
             boinc_dump_savepoint_file(filename_savepoint, result, time_counter)
 
-            #plt.plot(result[-1][0],result[-1][1])
-            #plt.plot(result[-1][0],result[-1][2])
-            print result
-        #plt.ylabel('some numbers')
-        #plt.show()
+            # plt.plot(result[-1][1],result[-1][2])
+            # plt.plot(result[-1][1],result[-1][3])
+            print "time to go",time_counter, " result", result
+        # plt.ylabel('some numbers')
+        # plt.show()
+
 
         #wrapping and cleaning up
-        writing_output(result)
+        container['data']['mode'] = "analyze_full_spectrum_basic"
+        container['data']['dataset'] = {}
+        container['data']['dataset'] = creating_json_data(result)
+        writing_output(container)
         os.remove(filename_savepoint)
 
     else:
