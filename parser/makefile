@@ -1,4 +1,4 @@
-PRO = simplesrv
+PRO = parser
 SRC = main.cpp parser.cpp log.cpp
 OBJ = ${SRC:.cpp=.o}
 
