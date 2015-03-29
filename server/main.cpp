@@ -10,7 +10,9 @@
 #include "main.hpp"
 #include "parser.hpp"
 
-
+/*
+ * @brief Greeting message.
+ */
 static void greeting()
 {
   std::cout << "Here we go!" << std::endl;
@@ -18,6 +20,9 @@ static void greeting()
       << VERSION_MINOR << "." << VERSION_REVISION << std::endl;
 }
 
+/*
+ * @brief Message to say good bye.
+ */
 static void valediction()
 {
   std::cout << "Good bye!" << std::endl;
