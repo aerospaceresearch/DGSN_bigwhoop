@@ -14,7 +14,7 @@
 /*
  * @brief Greeting message.
  */
-static void greeting()
+static void greeting() noexcept
 {
   std::cout << "Here we go!" << std::endl;
   std::cout << "DGSN BigWhoop parser v" << VERSION_MAJOR << "."
@@ -24,7 +24,7 @@ static void greeting()
 /*
  * @brief Message to say good bye.
  */
-static void valediction()
+static void valediction() noexcept
 {
   std::cout << "Good bye!" << std::endl;
 }
@@ -33,6 +33,7 @@ static void valediction()
  * @brief Check if a table exists in the database.
  */
 static bool table_exists(soci::session& sql, const std::string& table)
+  throw (std::exception)
 {
   int table_found;
   std::string query = "select count(type) from sqlite_master where "
@@ -43,8 +44,11 @@ static bool table_exists(soci::session& sql, const std::string& table)
 
 /*
  * @brief Check and setup the database.
+ *
+ * Note: If using other database library than sqlite3, additional
+ *       exceptions might be thrown.
  */
-static void db_init(soci::session& sql)
+static void db_init(soci::session& sql) throw (std::exception)
 {
   log::write(log::debug, "  database initialization ...\n");
 
@@ -82,7 +86,7 @@ static void db_init(soci::session& sql)
 /*
  * @brief Get file extension.
  */
-std::string get_ext(std::string path)
+std::string get_ext(std::string path) noexcept
 {
    size_t period = path.find_last_of(".");
    std::string ext = path.substr(period + 1);
