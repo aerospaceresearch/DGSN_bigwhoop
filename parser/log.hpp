@@ -7,8 +7,8 @@ class log
 {
   public:
     enum { all=0, verbose, debug, info, warning, error, fatal, none };
-    static void write(int nLevel, const char *szFormat, ...) noexcept;
-    static void setLevel(int nLevel) noexcept;
+    static void write(int loglevel, const char *format, ...) noexcept;
+    static void setLogLevel(int loglevel) noexcept;
 
   protected:
     static void checkInit() noexcept;
@@ -20,7 +20,7 @@ class log
     log& operator= (const log&) = delete;
     log& operator= (const log&&) = delete;
 
-    static bool m_bInitialised;
-    static int  m_nLevel;
+    static bool initialised_;
+    static int  loglevel_;
 };
 

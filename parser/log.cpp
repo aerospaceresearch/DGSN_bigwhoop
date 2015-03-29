@@ -2,35 +2,35 @@
 
 #include "log.hpp"
 
-bool log::m_bInitialised;
-int  log::m_nLevel;
+bool log::initialised_;
+int  log::loglevel_;
 
-void log::write(int nLevel, const char *szFormat, ...) noexcept
+void log::write(int loglevel, const char *format, ...) noexcept
 {
     checkInit();
-    if (nLevel >= m_nLevel){
+    if (loglevel >= loglevel_){
         va_list args;
-        va_start(args, szFormat);
-        vprintf(szFormat, args);
+        va_start(args, format);
+        vprintf(format, args);
         va_end(args);
     }
 }
 
-void log::setLevel(int nLevel) noexcept
+void log::setLogLevel(int loglevel) noexcept
 {
-    m_nLevel = nLevel;
-    m_bInitialised = true;
+    loglevel_ = loglevel;
+    initialised_ = true;
 }
 
 void log::checkInit() noexcept
 {
-    if(!m_bInitialised){
+    if(!initialised_){
         init();
     }
 }
 
 void log::init() noexcept
 {
-    setLevel(LOG_LEVEL);
+    setLogLevel(LOG_LEVEL);
 }
 
