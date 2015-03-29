@@ -10,6 +10,7 @@
 #include "main.hpp"
 #include "parser.hpp"
 
+
 /*
  * @brief Greeting message.
  */
@@ -110,7 +111,7 @@ int main(int argc, char** argv)
         Parser parser(is);
         fb.close();
       }
-    } catch (const std::exception & exception) {
+    } catch (const std::exception& exception) {
       log::write(log::fatal, "[Error] %s\n", exception.what());
       result = EXIT_FAILURE;
     }
@@ -119,10 +120,4 @@ int main(int argc, char** argv)
 
   return result;
 }
-
-//int main(int argc, char** argv)
-//{
-//
-//  return EXIT_SUCCESS;
-//}
 

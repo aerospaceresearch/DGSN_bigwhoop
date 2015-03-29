@@ -1,7 +1,7 @@
 #pragma once
 
-#include <cstdio>
 #include <cstdarg>
+#include <cstdio>
 
 class log
 {

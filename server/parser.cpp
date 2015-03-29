@@ -3,7 +3,6 @@
 
 #include <sstream>
 
-
 #include "log.hpp"
 #include "parser.hpp"
 
