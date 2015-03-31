@@ -9,6 +9,10 @@ import time
 import pickle
 import os
 import json
+from uuid import getnode as get_mac
+import hashlib
+import requests
+import urllib2
 
 '''
 BigWhoop...
@@ -35,7 +39,7 @@ this is a a veeeeery simple spectrum analyzer hopping each
 frequency to get the full spectrum that is possible with
 "ezcap USB 2.0 DVB-T/DAB/FM dongle", more devices will follow
 '''
-def analyze_full_spectrum_basic(device_number):
+def analyze_full_spectrum_basic(device_number, geo):
     print "you use a", librtlsdr.rtlsdr_get_device_name(device_number)
 
     scan_samplerate = task_hw_setting_samplerate[device_number]
@@ -61,16 +65,17 @@ def analyze_full_spectrum_basic(device_number):
 
     for scan_frequency in range(task_freq_scanstart[device_number], task_freq_scanend[device_number], scan_samplerate):
         result_timestamp.append(time.time())
-        result_geo_lon.append(180.0)
-        result_geo_lat.append(90.0)
-        result_geo_alt.append(0.0)
+        lon, lat, alt = geo.where()
+        result_geo_lon.append(lon)
+        result_geo_lat.append(lat)
+        result_geo_alt.append(alt)
 
         sdr_iq_stream = start_sdr(scan_frequency, scan_n_samples, sdr)
         sdr_iq_stream = np.abs(sdr_iq_stream)
         mean = np.mean(sdr_iq_stream)
         max = np.max(sdr_iq_stream)
         progressbar = float(scan_frequency-task_freq_scanstart[device_number])/(task_freq_scanend[device_number]-task_freq_scanstart[device_number])
-        print progressbar, scan_frequency, mean, max
+        print progressbar, scan_frequency, mean, max, lon, lat, alt
 
         result_frequency.append(scan_frequency)
         result_mean_amplitude.append(mean)
@@ -230,6 +235,58 @@ def creating_json_data(input):
     return out
 
 '''
+get a unique node id, but a bit disguised
+'''
+def get_node_id():
+    node_id = hashlib.sha224(str(get_mac()))
+    node_id = node_id.hexdigest()
+    return node_id
+
+'''
+checking, if the internet is on.
+this is used for the geo location cross check, where the node is roughly located
+'''
+def internet_on(url):
+    try:
+        response=urllib2.urlopen(url,timeout=1)
+        return True
+    except urllib2.URLError as err: pass
+    return False
+
+'''
+finding this node's position.
+also a cross check between where the user puts in the node's position,
+and where other sources states, where it COULD be.
+let's make sure, this won't tell us too much about the user!
+'''
+class geo_location():
+    def __init__(self):
+        url_ip = 'http://api.ipify.org'
+        internetison = internet_on(url_ip)
+        # This example requires the Requests library be installed.
+        # You can learn more about the Requests library here:
+        # http://docs.python-requests.org/en/latest/
+
+        self.ip = '0.0.0.0'
+        self.lon = 99.0
+        self.lat = 88.0
+        self.alt = 11.1
+
+        if internetison:
+            self.ip = requests.get(url_ip).text
+            print 'My public IP address is:', self.ip
+
+            send_url = 'http://freegeoip.net/json'
+            r = requests.get(send_url)
+            j = json.loads(r.text)
+            self.lat = j['latitude']
+            self.lon = j['longitude']
+
+    def where(self):
+        return self.lon, self.lat, self.alt
+
+
+'''
 let's start here.
 '''
 def main():
@@ -253,6 +310,9 @@ def main():
         print "for now, only one device is used. Soon, more..."
         device_number = 0
 
+        # getting the rough location of this node
+        geo = geo_location()
+
         # setting the scan timer
         # and loading the saved data to start from there
         if os.path.exists(filename_savepoint):
@@ -272,7 +332,7 @@ def main():
         while time_counter > 0:
             time_start = time.time()
 
-            result.append(analyze_full_spectrum_basic(device_number))
+            result.append(analyze_full_spectrum_basic(device_number, geo))
             time_counter = time_counter - (time.time() - time_start)
             boinc_dump_savepoint_file(filename_savepoint, result, time_counter)
 
@@ -284,6 +344,7 @@ def main():
 
 
         #wrapping and cleaning up
+        container['meta']['client']['id'] = get_node_id()
         container['data']['mode'] = "analyze_full_spectrum_basic"
         container['data']['dataset'] = {}
         container['data']['dataset'] = creating_json_data(result)
