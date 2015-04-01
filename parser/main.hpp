@@ -16,7 +16,16 @@ constexpr const unsigned int VERSION_REVISION = 0;
 constexpr const char* const DB_FILE = "database.db";
 
 /*
- * @brief Log level for log output.
+ * @brief Log level for output.
+ *
+ * Possible values: log::all
+ *                  log::verbose
+ *                  log::debug
+ *                  log::info
+ *                  log::warning
+ *                  log::error
+ *                  log::fatal
+ *                  log::none
  */
 constexpr const unsigned int LOG_LEVEL = log::all;
 

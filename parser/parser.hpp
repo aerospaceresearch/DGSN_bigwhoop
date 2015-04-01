@@ -1,6 +1,6 @@
 #pragma once
 
-#include <istream>
+#include <iostream>
 
 #include <jsoncpp/json/json.h>
 
@@ -12,7 +12,6 @@ class Parser
 
   private:
     void parse(std::istream& input);
-    void debugPrintJson() const;
 
     Json::Value root_;
 };

@@ -50,13 +50,15 @@ static bool table_exists(soci::session& sql, const std::string& table)
  */
 static void db_init(soci::session& sql) throw (std::exception)
 {
-  log::write(log::debug, "  database initialization ...\n");
+  log::write(log::debug, "  database initialisation …\n");
+  size_t count_entries_total = 0u;
 
   if(table_exists(sql, "version")) {
+    // TODO: Check if there is only one entry in the version table
     int v_major, v_minor;
     sql << "SELECT major FROM version", soci::into(v_major);
     sql << "SELECT minor FROM version", soci::into(v_minor);
-    log:: write(log::debug, "    database found: v%u.%u\n",
+    log:: write(log::debug, "    found database: v%u.%u\n",
       v_major, v_minor);
     if(VERSION_MAJOR != v_major ||
        VERSION_MINOR != v_minor) {
@@ -101,7 +103,6 @@ int main(int argc, char** argv)
   int result = EXIT_SUCCESS;
 
   greeting();
-  std::filebuf fb;
   if(argc < 2 ||
   !(get_ext(argv[1]) != "json" || get_ext(argv[1]) != "js")) {
     std::cout << "Usage: " << argv[0] << " <file.json>" << std::endl;
@@ -110,13 +111,14 @@ int main(int argc, char** argv)
       soci::session sql(soci::sqlite3, DB_FILE);
       db_init(sql);
 
+      std::filebuf fb;
       if(fb.open(argv[1], std::ios::in)) {
         std::istream is(&fb);
         Parser parser(is);
         fb.close();
       }
     } catch (const std::exception& exception) {
-      log::write(log::fatal, "[Error] %s\n", exception.what());
+      log::write(log::fatal, "\n[Error] %s\n\n", exception.what());
       result = EXIT_FAILURE;
     }
   }

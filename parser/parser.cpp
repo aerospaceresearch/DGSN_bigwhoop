@@ -14,8 +14,9 @@ Parser::Parser(std::istream& input)
 
 void Parser::parse(std::istream& input)
 {
+  log::write(log::debug, "  parsing JSON object …");
   input >> root_;
-  debugPrintJson();
+  log::write(log::debug, " done\n");
 }
 
 void Parser::debugPrintJson() const
