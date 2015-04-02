@@ -5,7 +5,7 @@
 	
 	<!-- your groundstation will perform the following tasks -->
 	<task id="1000">
-		<task_durationmin>3600</task_durationmin>
+		<task_durationmin>60</task_durationmin>
 		<task_freq_scanstart>30000000</task_freq_scanstart>
 		<task_freq_scanend>100000000</task_freq_scanend>
 		<task_analysis_mode>0</task_analysis_mode>
@@ -13,4 +13,15 @@
 		<task_hw_setting_gain>30</task_hw_setting_gain>
 		<task_hw_setting_nsamples>1024000</task_hw_setting_nsamples>
 	</task>
+
+	<!-- E-mail settings in case you want to provide results via e-mail. -->
+	<!-- Note that some special characters must be replaced by -->
+	<!-- entities in XML. -->
+	<email send="false">
+		<email_server></email_server>
+		<email_user></email_user>
+		<email_pass></email_pass>
+		<email_destination></email_destination>
+	</email>
 </workunit>
+
