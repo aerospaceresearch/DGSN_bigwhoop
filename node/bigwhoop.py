@@ -14,11 +14,30 @@ import hashlib
 import requests
 import urllib2
 
+import zipfile
+import smtplib
+from os.path import basename
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email.utils import COMMASPACE, formatdate
+from email import encoders
+
 '''
 BigWhoop...
 will measure everything what is happening in the radio-frequency spectrum,
 globally, continously, with your help!
 '''
+
+'''
+Glabal variables
+'''
+email_send = False
+email_server = ""
+email_user = ""
+email_pass = ""
+email_destination = ""
 
 
 '''
@@ -141,7 +160,20 @@ on the computer and scanned in the spectrum.
 def load_workunit():
     doc = minidom.parse("workunit.xml")
 
-    global sid, task_durationmin, task_freq_scanstart,task_freq_scanend, task_analysis_mode, task_hw_setting_samplerate, task_hw_setting_gain, task_hw_setting_nsamples
+    global sid
+    global task_durationmin
+    global task_freq_scanstart
+    global task_freq_scanend
+    global task_analysis_mode
+    global task_hw_setting_samplerate
+    global task_hw_setting_gain
+    global task_hw_setting_nsamples
+    global email_send
+    global email_server
+    global email_user
+    global email_pass
+    global email_destination
+
     sid = []
     task_durationmin = []
     task_freq_scanstart = []
@@ -157,6 +189,7 @@ def load_workunit():
            (wu_info.firstChild.data))
 
     tasks = doc.getElementsByTagName("task")
+    email_data = doc.getElementsByTagName("email")
 
     for task in tasks:
         sid.append(int(task.getAttribute("id")))
@@ -168,6 +201,27 @@ def load_workunit():
         task_hw_setting_gain.append(int(task.getElementsByTagName("task_hw_setting_gain")[0].firstChild.data))
         task_hw_setting_nsamples.append(int(task.getElementsByTagName("task_hw_setting_nsamples")[0].firstChild.data))
 
+    try:
+        for email in email_data:
+            if email.getAttribute("send") in\
+                ['TRUE', 'True', 'true', '1', 'y', 'yes', 'on']:
+                email_send = True
+                print "[>] email containing results will be sent"
+                email_server = str(email\
+                    .getElementsByTagName("email_server")[0]\
+                    .firstChild.data)
+                email_user = str(email\
+                    .getElementsByTagName("email_user")[0]\
+                    .firstChild.data)
+                email_pass = str(email\
+                    .getElementsByTagName("email_pass")[0]\
+                    .firstChild.data)
+                email_destination = str(email\
+                    .getElementsByTagName("email_destination")[0]\
+                    .firstChild.data)
+    except AttributeError:
+        print "[>] no email option provided: "\
+              "sending results via email not possible"
 
 '''
 In case of a hard shut off/down of the computer and software, the software will dump and resume from a
@@ -186,10 +240,13 @@ writing the output of the analysis.
 it is js for now and will be specified in the next team meeting
 '''
 def writing_output(container):
+    output_files = []
+    output_files.append("result.js")
     getout = (json.dumps(container, sort_keys=True, indent=4))
-    f = open("result.js", "w+")
+    f = open(output_files[0], "w+")
     f.write(getout)
     f.close
+    return output_files
 
 '''
 creating a dictionary for all the output data
@@ -287,6 +344,87 @@ class geo_location():
 
 
 '''
+Compress given files in 'result.zip'.
+'''
+def zip_files(output_files):
+    output_zip = 'result.zip'
+    print("> zipping output files ..."),
+    try:
+        zf = zipfile.ZipFile(output_zip, mode='w')
+        for output_file in output_files:
+            zf.write(output_file)
+    finally:
+        zf.close()
+    print "done"
+    return output_zip
+
+'''
+Cleanup temporary files witch were used for preparing the outgoing e-mail.
+'''
+def cleanup_dir(output_files_zip):
+    print('> cleaning temporary files ...'),
+    for f in output_files_zip:
+        os.remove(f)
+    print "done"
+
+'''
+Send resulting data via e-mail.
+'''
+def send_results_email(results):
+    if email_send and\
+       email_server and\
+       email_user and\
+       email_pass and\
+       email_destination:
+
+        output_files_zip = []
+        output_files_zip.append(zip_files(results))
+        print("> sending email ..."),
+        subject = "DGSN BigWhoop Data"
+        sender = email_user
+        receivers = []
+        receivers.append(email_destination)
+        text = "This e-mail contains collected data from the\n"\
+               "Distributed Ground Station Network (DGSN).\n"
+        email = MIMEMultipart()
+        email['Subject'] = subject
+        email['To'] = COMMASPACE.join(receivers)
+        email.attach(MIMEText(text, 'plain'))
+        for f in output_files_zip or []:
+            with open(f, "rb") as fl:
+                # Send the results with an unique label containing
+                # the first and the last few chars from the user id
+                # and append the current unix timestamp.
+                file_desc = get_node_id()[:8] + get_node_id()[-8:]\
+                    + "-" + (str(int(time.time()))\
+                    + "-" + basename("result.zip"))
+                part=MIMEBase('application','zip')
+                part.set_payload(fl.read())
+                encoders.encode_base64(part)
+                part.add_header('Content-Disposition', 'attachment',\
+                            filename=file_desc,\
+                            desc=file_desc)
+                email.attach(part)
+        try:
+            smtpsrv = smtplib.SMTP(email_server, 587)
+            smtpsrv.ehlo()
+            smtpsrv.starttls()
+            smtpsrv.ehlo
+            smtpsrv.login(email_user, email_pass);
+            smtpsrv.sendmail(sender, receivers, email.as_string())
+            smtpsrv.close()
+            print "done and done"
+        except smtplib.SMTPHeloError:
+            print "Error: unable to send email (wrong reply from server)"
+        except smtplib.SMTPAuthenticationError:
+            print "Error: unable to send email (login failed)"
+        except smtplib.SMTPException:
+            print "Error: unable to send email (auth method failed)"
+        except smtplib.SMTPException:
+            print "Error: unable to send email"
+        cleanup_dir(output_files_zip)
+
+'''
 let's start here.
 '''
 def main():
@@ -348,7 +486,8 @@ def main():
         container['data']['mode'] = "analyze_full_spectrum_basic"
         container['data']['dataset'] = {}
         container['data']['dataset'] = creating_json_data(result)
-        writing_output(container)
+        output_files = writing_output(container)
+        send_results_email(output_files)
         os.remove(filename_savepoint)
 
     else:
@@ -356,5 +495,9 @@ def main():
 
     print "thank you for helping"
 
+'''
+    Entry point.
+'''
 if __name__ == '__main__':
     main()
+
