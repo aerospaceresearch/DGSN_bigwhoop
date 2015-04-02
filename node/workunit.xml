@@ -5,7 +5,7 @@
 	
 	<!-- your groundstation will perform the following tasks -->
 	<task id="1000">
-		<task_durationmin>60</task_durationmin>
+		<task_durationmin>3600</task_durationmin>
 		<task_freq_scanstart>30000000</task_freq_scanstart>
 		<task_freq_scanend>100000000</task_freq_scanend>
 		<task_analysis_mode>0</task_analysis_mode>
