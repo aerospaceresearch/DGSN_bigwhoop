@@ -12,7 +12,7 @@
 		<task_hw_setting_samplerate>2048000</task_hw_setting_samplerate>
 		<task_hw_setting_gain>30</task_hw_setting_gain>
 		<task_hw_setting_nsamples>1024000</task_hw_setting_nsamples>
-	</task>
+  </task>
 
 	<!-- E-mail settings in case you want to provide results via e-mail. -->
 	<!-- Note that some special characters must be replaced by -->
