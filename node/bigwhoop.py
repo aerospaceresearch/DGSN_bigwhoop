@@ -347,7 +347,7 @@ def zip_files(output_files):
     output_zip = 'result.zip'
     print("> zipping output files ..."),
     try:
-        zf = zipfile.ZipFile(output_zip, mode='w')
+        zf = zipfile.ZipFile(output_zip, mode='w', zipfile.ZIP_DEFLATED)
         for output_file in output_files:
             zf.write(output_file)
     finally:
