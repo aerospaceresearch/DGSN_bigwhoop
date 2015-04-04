@@ -345,16 +345,44 @@ let's make sure, this won't tell us too much about the user!
 '''
 class geo_location():
     def __init__(self):
-        url_ip = 'http://api.ipify.org'
-        internetison = internet_on(url_ip)
         # This example requires the Requests library be installed.
         # You can learn more about the Requests library here:
         # http://docs.python-requests.org/en/latest/
 
-        self.ip = '0.0.0.0'
-        self.lon = 99.0
-        self.lat = 88.0
-        self.alt = 11.1
+        # standard geo references taken by the user inputs
+        self.ip = '127.0.0.1'
+        self.lon = 0.0
+        self.lat = 0.0
+        self.alt = 0.0
+
+        # checking input syntax to find floats and strings with EW and NS. Perhaps more fallbacks needed.
+        if gs_location[0].find("E") > -1:
+            self.lon = float(gs_location[0][0:gs_location[0].find("E")])
+        elif gs_location[0].find("W") > -1:
+            self.lon = -1.0*float(gs_location[0][0:gs_location[0].find("W")])
+        else:
+            self.lon = float(gs_location[0])
+
+        self.lat = gs_location[1]
+        if gs_location[0].find("N") > -1:
+            self.lat = float(gs_location[1][0:gs_location[1].find("N")])
+        elif gs_location[0].find("S") > -1:
+            self.lat = -1.0*float(gs_location[1][0:gs_location[1].find("S")])
+        else:
+            self.lat = float(gs_location[1])
+
+        self.alt = float(gs_location[2])
+
+
+        self.ip_lon = 0.0
+        self.ip_lat = 0.0
+        self.ip_alt = 0.0
+
+        '''
+        just checking, if there is an accessible internet connection
+        '''
+        url_ip = 'http://api.ipify.org'
+        internetison = internet_on(url_ip)
 
         if internetison:
             self.ip = requests.get(url_ip).text
@@ -363,8 +391,16 @@ class geo_location():
             send_url = 'http://freegeoip.net/json'
             r = requests.get(send_url)
             j = json.loads(r.text)
-            self.lat = j['latitude']
-            self.lon = j['longitude']
+            self.ip_lon = float(j['longitude'])
+            self.ip_lat = float(j['latitude'])
+
+            # first check if user input of geo is in range of ip determined geo location
+            # another inout for a quorum of 3 would be needed! But for now, it's better than nothing o have this check.
+            # also keeping in mind users behind a proxy or anonymizer having another ip of somehwere else.
+            if abs(self.ip_lon - self.lon) > 5.0 or abs(self.ip_lat - self.lat) > 5.0:
+                print "using the geo position found based on the ip-address"
+                self.lon = self.ip_lon
+                self.lat = self.ip_lat
 
     def where(self):
         return self.lon, self.lat, self.alt
@@ -518,4 +554,3 @@ def main():
 '''
 if __name__ == '__main__':
     main()
-
