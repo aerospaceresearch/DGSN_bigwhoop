@@ -160,6 +160,7 @@ on the computer and scanned in the spectrum.
 def load_workunit():
     doc = minidom.parse("workunit.xml")
 
+    global wuid
     global sid
     global task_durationmin
     global task_freq_scanstart
@@ -184,9 +185,9 @@ def load_workunit():
     task_hw_setting_nsamples = []
 
     # doc.getElementsByTagName returns NodeList
-    wu_info = doc.getElementsByTagName("wu_info")[0]
+    wuid = doc.getElementsByTagName("wu_info")[0].firstChild.data
     print("Workunit Info:%s" %
-           (wu_info.firstChild.data))
+           (wuid))
 
     tasks = doc.getElementsByTagName("task")
     email_data = doc.getElementsByTagName("email")
@@ -269,11 +270,7 @@ def create_out_structure():
     meta['sw']['bit'] = '32bit64bit'
 
     data = {}
-    data['geolocation'] = {}
-    data['geolocation']['user_input'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    data['geolocation']['ipgeo'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    data['geolocation']['gps'] = {'time' : 0.0, 'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
-    data['geolocation']['adsb'] = {'time' : 0.0,'lon' : 180.0, 'lat' : 90.0, 'alt' : 0.0}
+    data['workunitid'] = {}
     data['mode'] = 'analyze_full_spectrum_basic'
     data['dataset'] = {}
 
@@ -483,9 +480,11 @@ def main():
 
         #wrapping and cleaning up
         container['meta']['client']['id'] = get_node_id()
-        container['data']['mode'] = "analyze_full_spectrum_basic"
+        container['data']['workunitid'] = wuid
         container['data']['dataset'] = {}
-        container['data']['dataset'] = creating_json_data(result)
+        container['data']['dataset']['analyze_full_spectrum_basic'] = creating_json_data(result)
+        container['data']['dataset']['analyze_adsb'] = [{'timestamp' : 1111111, 'lon' : 111, 'lat' : 88, 'alt' : 9999}]
+
         output_files = writing_output(container)
         send_results_email(output_files)
         os.remove(filename_savepoint)
