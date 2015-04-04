@@ -58,7 +58,7 @@ this is a a veeeeery simple spectrum analyzer hopping each
 frequency to get the full spectrum that is possible with
 "ezcap USB 2.0 DVB-T/DAB/FM dongle", more devices will follow
 '''
-def analyze_full_spectrum_basic(device_number, geo):
+def analyze_full_spectrum_basic(device_number, geo, loopcounter, loopstogo):
     print "you use a", librtlsdr.rtlsdr_get_device_name(device_number)
 
     scan_samplerate = task_hw_setting_samplerate[device_number]
@@ -94,6 +94,7 @@ def analyze_full_spectrum_basic(device_number, geo):
         mean = np.mean(sdr_iq_stream)
         max = np.max(sdr_iq_stream)
         progressbar = float(scan_frequency-task_freq_scanstart[device_number])/(task_freq_scanend[device_number]-task_freq_scanstart[device_number])
+        progressbar = progressbar / float(loopstogo-1) + float(loopcounter) / float(loopstogo-1)
         print progressbar, scan_frequency, mean, max, lon, lat, alt
 
         result_frequency.append(scan_frequency)
@@ -238,12 +239,12 @@ In case of a hard shut off/down of the computer and software, the software will 
 savepoint file that is performed here.
 It is a simple python pickle.
 '''
-def boinc_dump_savepoint_file(filename, result, timer):
-    pickle.dump( [timer,result], open( filename, "wb" ) )
+def boinc_dump_savepoint_file(filename, result, timer, loopcounter):
+    pickle.dump( [timer, result, loopcounter], open( filename, "wb" ) )
 
 def boinc_load_savepoint_file(filename):
     input = pickle.load( open( filename, "rb" ) )
-    return input[0], input[1]
+    return input[0], input[1], input[2]
 
 '''
 Clean all results
@@ -508,30 +509,39 @@ def main():
         # setting the scan timer
         # and loading the saved data to start from there
         if os.path.exists(filename_savepoint):
-            time_counter, result = boinc_load_savepoint_file(filename_savepoint)
+            time_counter, result, loopcounter = boinc_load_savepoint_file(filename_savepoint)
             print time_counter
             print result
         else:
-            time_counter = task_durationmin[device_number]
+            time_counter = 0.0
+            loopcounter = 0
 
         # preparation of the output structure as json for everything meta and data
         container = create_out_structure()
 
 
+        # estimating total while iterations
+        loopstogo = (task_freq_scanend[device_number] - task_freq_scanstart[device_number])
+        loopstogo = loopstogo * task_hw_setting_nsamples[device_number] / (task_hw_setting_samplerate[device_number]**2)
+        loopstogo = int(np.round(float(task_durationmin[device_number]) / float(loopstogo)))
+
         # start the scanning cycle with time and frequencies.
         # currently, only time base can be resumed.
         # import matplotlib.pyplot as plt
-        while time_counter > 0:
+        while time_counter < task_durationmin[device_number]:
             time_start = time.time()
 
-            result.append(analyze_full_spectrum_basic(device_number, geo))
-            time_counter = time_counter - (time.time() - time_start)
-            boinc_dump_savepoint_file(filename_savepoint, result, time_counter)
+            result.append(analyze_full_spectrum_basic(device_number, geo, loopcounter, loopstogo))
+
+            time_counter = time_counter + (time.time() - time_start)
+            loopcounter += 1
+
+            boinc_dump_savepoint_file(filename_savepoint, result, time_counter, loopcounter)
 
             # plt.plot(result[-1][1],result[-1][2])
             # plt.plot(result[-1][1],result[-1][3])
             print "time to go",time_counter, " result", result
-        # plt.ylabel('some numbers')
+        #plt.ylabel('some numbers')
         # plt.show()
 
 
