@@ -14,15 +14,15 @@ import hashlib
 import requests
 import urllib2
 
-import zipfile
-import smtplib
-from os.path import basename
+from email import encoders
 from email.mime.application import MIMEApplication
+from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
 from email.utils import COMMASPACE, formatdate
-from email import encoders
+import re
+import smtplib
+import zipfile
 
 '''
 BigWhoop...
@@ -110,6 +110,15 @@ def analyze_full_spectrum_basic(device_number, geo):
 
     sdr.close()
     return [result_timestamp, result_frequency, result_mean_amplitude, result_max_amplitude, result_geo_lon, result_geo_lat, result_geo_alt]
+
+'''
+Get a unique filename to the given file.
+'''
+def get_unique_filename(filename):
+    file_desc = get_node_id()[:8] + get_node_id()[-8:]\
+            + "-" + (str(int(time.time()))\
+            + "-" + os.path.basename(filename))
+    return file_desc
 
 '''
 shortening just in case the input is too long. so people can include their
@@ -237,12 +246,34 @@ def boinc_load_savepoint_file(filename):
     return input[0], input[1]
 
 '''
+Clean all results
+'''
+def clean_results():
+    print('> cleaning previous results ...'),
+    pattern = ".*-.*-result.json"
+    for f in os.listdir('.'):
+        if re.search(pattern, f):
+            os.remove(os.path.join('.', f))
+    print "done"
+
+'''
+Cleanup temporary files witch were used for preparing the outgoing e-mail.
+'''
+def cleanup_dir(output_files_zip):
+    print('> cleaning temporary files ...'),
+    for f in output_files_zip:
+        os.remove(f)
+    print "done"
+
+
+'''
 writing the output of the analysis.
 it is js for now and will be specified in the next team meeting
 '''
 def writing_output(container):
+    clean_results()
     output_files = []
-    output_files.append("result.js")
+    output_files.append(get_unique_filename("result.json"))
     getout = (json.dumps(container, sort_keys=True, indent=4))
     f = open(output_files[0], "w+")
     f.write(getout)
@@ -344,25 +375,16 @@ class geo_location():
 Compress given files in 'result.zip'.
 '''
 def zip_files(output_files):
-    output_zip = 'result.zip'
+    output_zip = get_unique_filename('result.zip')
     print("> zipping output files ..."),
     try:
-        zf = zipfile.ZipFile(output_zip, mode='w', zipfile.ZIP_DEFLATED)
+        zf = zipfile.ZipFile(output_zip, 'w', zipfile.ZIP_DEFLATED)
         for output_file in output_files:
             zf.write(output_file)
     finally:
         zf.close()
     print "done"
     return output_zip
-
-'''
-Cleanup temporary files witch were used for preparing the outgoing e-mail.
-'''
-def cleanup_dir(output_files_zip):
-    print('> cleaning temporary files ...'),
-    for f in output_files_zip:
-        os.remove(f)
-    print "done"
 
 '''
 Send resulting data via e-mail.
@@ -392,9 +414,7 @@ def send_results_email(results):
                 # Send the results with an unique label containing
                 # the first and the last few chars from the user id
                 # and append the current unix timestamp.
-                file_desc = get_node_id()[:8] + get_node_id()[-8:]\
-                    + "-" + (str(int(time.time()))\
-                    + "-" + basename("result.zip"))
+                file_desc = get_unique_filename("result.zip");
                 part=MIMEBase('application','zip')
                 part.set_payload(fl.read())
                 encoders.encode_base64(part)
