@@ -293,6 +293,7 @@ def create_out_structure():
     meta['client']['sensor'] = {}
     meta['client']['sensor']['id'] = 0
     meta['client']['sensor']['name'] = 'generic sdr device'
+    meta['client']['sensor']['antenna'] = 'custom,dipol,75cm'
     meta['client']['sensor']['ppm'] = 0
 
     meta['sw'] = {}
