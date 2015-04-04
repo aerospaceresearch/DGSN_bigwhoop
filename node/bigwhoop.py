@@ -358,16 +358,17 @@ class geo_location():
 
         # checking input syntax to find floats and strings with EW and NS. Perhaps more fallbacks needed.
         if gs_location[0].find("E") > -1:
-            self.lon = float(gs_location[0][0:gs_location[0].find("E")])
+            self.lon = float(gs_location[0][0:gs_location[0].find("E")-1])
         elif gs_location[0].find("W") > -1:
             self.lon = -1.0*float(gs_location[0][0:gs_location[0].find("W")])
         else:
             self.lon = float(gs_location[0])
 
         self.lat = gs_location[1]
-        if gs_location[0].find("N") > -1:
-            self.lat = float(gs_location[1][0:gs_location[1].find("N")])
-        elif gs_location[0].find("S") > -1:
+
+        if gs_location[1].find("N") > -1:
+            self.lat = float(gs_location[1][0:gs_location[1].find("N")-1])
+        elif gs_location[1].find("S") > -1:
             self.lat = -1.0*float(gs_location[1][0:gs_location[1].find("S")])
         else:
             self.lat = float(gs_location[1])
