@@ -302,7 +302,6 @@ def create_out_structure():
 
     data = {}
     data['workunitid'] = {}
-    data['mode'] = 'analyze_full_spectrum_basic'
     data['dataset'] = {}
 
     return {'meta' : meta, 'data' : data}
