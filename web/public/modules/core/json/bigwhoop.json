@@ -1,0 +1,4175 @@
+{
+    "data": {
+        "dataset": {
+            "analyze_adsb": [
+                {
+                    "alt": 9999, 
+                    "lat": 88, 
+                    "lon": 111, 
+                    "timestamp": 1111111
+                }
+            ], 
+            "analyze_full_spectrum_basic": [
+                {
+                    "alt": 30.0, 
+                    "frequency": 30000000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 13.656500283747663, 
+                    "mean_amplitude": 0.88817266351062552, 
+                    "timestamp": 1428237044.528
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 32048000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.90736305756198543, 
+                    "timestamp": 1428237046.547
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 34096000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.96059736347190328, 
+                    "timestamp": 1428237048.773
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 36144000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.050804512855477, 
+                    "timestamp": 1428237051.009
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 38192000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.3824115301167001, 
+                    "mean_amplitude": 1.1891155266265934, 
+                    "timestamp": 1428237053.121
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 40240000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.1923881554251192, 
+                    "mean_amplitude": 1.4752076824545459, 
+                    "timestamp": 1428237055.385
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 42288000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.747548783981962, 
+                    "mean_amplitude": 1.4526096739224321, 
+                    "timestamp": 1428237057.406
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 44336000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.6313382508160341, 
+                    "mean_amplitude": 1.2884840247477374, 
+                    "timestamp": 1428237059.459
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 46384000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.5146931829632013, 
+                    "mean_amplitude": 1.3289577741412606, 
+                    "timestamp": 1428237061.498
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 48432000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.5146931829632013, 
+                    "mean_amplitude": 1.3523012441464408, 
+                    "timestamp": 1428237063.523
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 50480000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.0672119101156505, 
+                    "timestamp": 1428237065.531
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 52528000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 1.0072510470548905, 
+                    "timestamp": 1428237067.563
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 54576000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.93722081437356097, 
+                    "timestamp": 1428237069.593
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 56624000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.90990453863768128, 
+                    "timestamp": 1428237071.632
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 58672000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.90488119092239605, 
+                    "timestamp": 1428237073.878
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 60720000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.3824115301167001, 
+                    "mean_amplitude": 0.92475593321521232, 
+                    "timestamp": 1428237076.145
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 62768000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.87088630833295833, 
+                    "timestamp": 1428237078.397
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 64816000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8165914728699869, 
+                    "timestamp": 1428237080.735
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 66864000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.80051687438159491, 
+                    "timestamp": 1428237082.981
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 68912000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.76554631324127331, 
+                    "timestamp": 1428237085.199
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 70960000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.85861225216683679, 
+                    "timestamp": 1428237087.283
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 73008000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.79615135772508661, 
+                    "timestamp": 1428237089.399
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 75056000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79092852660601409, 
+                    "timestamp": 1428237091.666
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 77104000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78578729117080304, 
+                    "timestamp": 1428237093.732
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 79152000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77847543624890914, 
+                    "timestamp": 1428237095.765
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 81200000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77122168055100082, 
+                    "timestamp": 1428237097.989
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 83248000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.77079186591637394, 
+                    "timestamp": 1428237101.05
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 85296000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78349484072849462, 
+                    "timestamp": 1428237103.143
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 87344000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.957452219085977, 
+                    "timestamp": 1428237105.227
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 89392000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 1.1045655331923938, 
+                    "timestamp": 1428237107.415
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 91440000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.80214105644476719, 
+                    "timestamp": 1428237109.636
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 93488000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.92875890204511868, 
+                    "timestamp": 1428237111.841
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 95536000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74056527789143767, 
+                    "timestamp": 1428237114.068
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 97584000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.81664982660934571, 
+                    "timestamp": 1428237116.275
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 99632000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78019084390407345, 
+                    "timestamp": 1428237118.527
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 101680000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74322044740473503, 
+                    "timestamp": 1428237120.743
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 103728000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78340798477795304, 
+                    "timestamp": 1428237122.974
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 105776000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73818188419684705, 
+                    "timestamp": 1428237125.173
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 107824000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73560377497923812, 
+                    "timestamp": 1428237127.405
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 109872000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73060782132158952, 
+                    "timestamp": 1428237129.695
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 111920000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73181711312412878, 
+                    "timestamp": 1428237132.007
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 113968000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73350215150732589, 
+                    "timestamp": 1428237134.218
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 116016000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.90113539151003785, 
+                    "timestamp": 1428237136.437
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 118064000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73587817773379116, 
+                    "timestamp": 1428237138.69
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 120112000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 1.1738874214076729, 
+                    "timestamp": 1428237141.033
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 122160000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73957795298694373, 
+                    "timestamp": 1428237143.268
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 124208000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74300360310157798, 
+                    "timestamp": 1428237145.486
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 126256000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74286765922436371, 
+                    "timestamp": 1428237147.694
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 128304000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74355437233295085, 
+                    "timestamp": 1428237149.926
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 130352000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74242743354572316, 
+                    "timestamp": 1428237152.16
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 132400000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.7404422164477158, 
+                    "timestamp": 1428237154.392
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 134448000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73346189818148388, 
+                    "timestamp": 1428237156.613
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 136496000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73166442428527334, 
+                    "timestamp": 1428237158.856
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 138544000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73189724319135563, 
+                    "timestamp": 1428237161.155
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 140592000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74516422684125194, 
+                    "timestamp": 1428237163.39
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 142640000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73589691808478475, 
+                    "timestamp": 1428237165.604
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 144688000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 1.3413240194519933, 
+                    "timestamp": 1428237167.828
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 146736000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.74205419398208095, 
+                    "timestamp": 1428237170.05
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 148784000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.7443964102840992, 
+                    "timestamp": 1428237172.282
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 150832000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.74956954254792207, 
+                    "timestamp": 1428237174.493
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 152880000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.75583279791279812, 
+                    "timestamp": 1428237176.745
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 154928000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76129482241112756, 
+                    "timestamp": 1428237178.972
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 156976000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.75850151140235933, 
+                    "timestamp": 1428237181.208
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 159024000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.76797664961053447, 
+                    "timestamp": 1428237183.41
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 161072000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.7726046555838848, 
+                    "timestamp": 1428237185.623
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 163120000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.78500801597186498, 
+                    "timestamp": 1428237187.862
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 165168000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.78031920934950916, 
+                    "timestamp": 1428237190.047
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 167216000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.7821288049277153, 
+                    "timestamp": 1428237192.262
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 169264000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.78138962316801797, 
+                    "timestamp": 1428237194.533
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 171312000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.77661636558455327, 
+                    "timestamp": 1428237196.752
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 173360000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.79839656961169403, 
+                    "timestamp": 1428237198.957
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 175408000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.77892449618487769, 
+                    "timestamp": 1428237201.16
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 177456000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.83741772771003209, 
+                    "timestamp": 1428237203.35
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 179504000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 0.86087360977872707, 
+                    "timestamp": 1428237205.588
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 181552000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.6485292703891776, 
+                    "mean_amplitude": 0.89225215193216945, 
+                    "timestamp": 1428237207.826
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 183600000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.8600225733346765, 
+                    "mean_amplitude": 0.93743261031136771, 
+                    "timestamp": 1428237210.045
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 185648000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 10.700467279516348, 
+                    "mean_amplitude": 0.98623190922864912, 
+                    "timestamp": 1428237212.238
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 187696000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.020815280171307, 
+                    "mean_amplitude": 1.0816932734784188, 
+                    "timestamp": 1428237214.467
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 189744000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.589678312014172, 
+                    "mean_amplitude": 1.1258913130508066, 
+                    "timestamp": 1428237216.675
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 191792000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.103718436910206, 
+                    "mean_amplitude": 1.226937847581822, 
+                    "timestamp": 1428237218.899
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 193840000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 11.597413504743201, 
+                    "mean_amplitude": 1.2031209040676167, 
+                    "timestamp": 1428237221.109
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 195888000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 10.700467279516348, 
+                    "mean_amplitude": 1.1149906979894573, 
+                    "timestamp": 1428237223.341
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 197936000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 10.124228365658293, 
+                    "mean_amplitude": 1.0788307082180153, 
+                    "timestamp": 1428237225.56
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 199984000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.3005376188691358, 
+                    "mean_amplitude": 1.0735336371868123, 
+                    "timestamp": 1428237227.875
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 202032000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.2764726786234242, 
+                    "mean_amplitude": 0.96099390757582459, 
+                    "timestamp": 1428237230.101
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 204080000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.3639610306789285, 
+                    "mean_amplitude": 0.86386753707069386, 
+                    "timestamp": 1428237232.327
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 206128000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.82000967940663827, 
+                    "timestamp": 1428237234.551
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 208176000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.81464332139352158, 
+                    "timestamp": 1428237236.749
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 210224000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.83440576755890228, 
+                    "timestamp": 1428237238.954
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 212272000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.7712687008180531, 
+                    "timestamp": 1428237241.542
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 214320000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.76732699402322435, 
+                    "timestamp": 1428237244.363
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 216368000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.75146290212065692, 
+                    "timestamp": 1428237246.497
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 218416000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.7933989812717761, 
+                    "timestamp": 1428237248.776
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 220464000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.77903254254795784, 
+                    "timestamp": 1428237251.002
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 222512000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.78790656411532556, 
+                    "timestamp": 1428237253.228
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 224560000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.78456519884151021, 
+                    "timestamp": 1428237255.46
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 226608000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77934054319042767, 
+                    "timestamp": 1428237257.654
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 228656000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.79822216575530525, 
+                    "timestamp": 1428237259.925
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 230704000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 1.170381390978644, 
+                    "timestamp": 1428237262.191
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 232752000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.83942135618751079, 
+                    "timestamp": 1428237264.412
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 234800000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77716968903654648, 
+                    "timestamp": 1428237267.285
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 236848000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77911816839249992, 
+                    "timestamp": 1428237270.831
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 238896000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.74805884558476077, 
+                    "timestamp": 1428237273.433
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 240944000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.79282738006796505, 
+                    "timestamp": 1428237276.507
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 242992000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.81736555332464678, 
+                    "timestamp": 1428237279.695
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 245040000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.8424410293544774, 
+                    "timestamp": 1428237281.752
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 247088000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 0.95164055386608348, 
+                    "timestamp": 1428237283.855
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 249136000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.85031081757707427, 
+                    "timestamp": 1428237286.126
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 251184000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.90490941680592296, 
+                    "timestamp": 1428237288.39
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 253232000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.81107968208770509, 
+                    "timestamp": 1428237290.88
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 255280000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79424708587899051, 
+                    "timestamp": 1428237292.981
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 257328000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.87392752364133619, 
+                    "timestamp": 1428237295.974
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 259376000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.9056941504209481, 
+                    "mean_amplitude": 1.2075392334743349, 
+                    "timestamp": 1428237298.282
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 261424000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.6485292703891776, 
+                    "mean_amplitude": 1.1285205434154799, 
+                    "timestamp": 1428237300.481
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 263472000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.8234413521942496, 
+                    "mean_amplitude": 1.1687315956021025, 
+                    "timestamp": 1428237302.689
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 265520000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.1063352017759485, 
+                    "mean_amplitude": 1.2168436390280584, 
+                    "timestamp": 1428237304.99
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 267568000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 1.0853283765822073, 
+                    "timestamp": 1428237307.207
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 269616000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 1.2135533199836097, 
+                    "timestamp": 1428237309.427
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 271664000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.90592395877048804, 
+                    "timestamp": 1428237311.741
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 273712000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0825928633612842, 
+                    "timestamp": 1428237314.494
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 275760000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.1220866098100444, 
+                    "timestamp": 1428237316.699
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 277808000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.94239949924129585, 
+                    "timestamp": 1428237319.054
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 279856000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.0276581882404312, 
+                    "timestamp": 1428237321.331
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 281904000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.95005175527387054, 
+                    "timestamp": 1428237324.251
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 283952000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.104913810984804, 
+                    "timestamp": 1428237326.65
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 286000000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0063680496052025, 
+                    "timestamp": 1428237328.71
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 288048000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0437490361020809, 
+                    "timestamp": 1428237330.727
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 290096000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.96713097401584691, 
+                    "timestamp": 1428237333.111
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 292144000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.99508993370783427, 
+                    "timestamp": 1428237336.22
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 294192000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.91437818932325654, 
+                    "timestamp": 1428237338.306
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 296240000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.91272816808893098, 
+                    "timestamp": 1428237341.727
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 298288000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79660702966307406, 
+                    "timestamp": 1428237343.811
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 300336000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8097822205933044, 
+                    "timestamp": 1428237346.426
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 302384000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81096298383437526, 
+                    "timestamp": 1428237348.919
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 304432000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8203545428117619, 
+                    "timestamp": 1428237351.546
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 306480000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.3824115301167001, 
+                    "mean_amplitude": 1.1214535044201552, 
+                    "timestamp": 1428237355.144
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 308528000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.90313593793713209, 
+                    "timestamp": 1428237357.197
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 310576000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.88952895587654301, 
+                    "timestamp": 1428237360.45
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 312624000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.83738161260531085, 
+                    "timestamp": 1428237362.563
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 314672000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.5166481891864549, 
+                    "mean_amplitude": 1.0660945896849314, 
+                    "timestamp": 1428237364.859
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 316720000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.905694150420949, 
+                    "mean_amplitude": 1.466042016285243, 
+                    "timestamp": 1428237367.69
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 318768000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.9641941385920596, 
+                    "mean_amplitude": 1.1517606465703609, 
+                    "timestamp": 1428237369.795
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 320816000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.8600225733346765, 
+                    "mean_amplitude": 1.0548701340854882, 
+                    "timestamp": 1428237372.668
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 322864000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.3824115301167001, 
+                    "mean_amplitude": 1.1419045280382931, 
+                    "timestamp": 1428237375.807
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 324912000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.1063352017759485, 
+                    "mean_amplitude": 1.0561771029897509, 
+                    "timestamp": 1428237377.916
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 326960000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 1.1295343376620437, 
+                    "timestamp": 1428237381.384
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 329008000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.89436141195651619, 
+                    "timestamp": 1428237383.484
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 331056000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 1.0416796419629197, 
+                    "timestamp": 1428237386.062
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 333104000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 1.0456972950294818, 
+                    "timestamp": 1428237388.079
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 335152000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.94766250454965473, 
+                    "timestamp": 1428237390.132
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 337200000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.88704088204951093, 
+                    "timestamp": 1428237392.674
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 339248000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.88381645460733216, 
+                    "timestamp": 1428237395.495
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 341296000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.85041975015903359, 
+                    "timestamp": 1428237397.701
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 343344000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8405961671162423, 
+                    "timestamp": 1428237400.722
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 345392000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.90812685413896543, 
+                    "timestamp": 1428237403.103
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 347440000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84976657558249435, 
+                    "timestamp": 1428237406.797
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 349488000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.81959697727832292, 
+                    "timestamp": 1428237408.871
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 351536000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.9105115895062561, 
+                    "timestamp": 1428237411.913
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 353584000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81533932412853816, 
+                    "timestamp": 1428237414.097
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 355632000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.8030420608290153, 
+                    "timestamp": 1428237416.48
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 357680000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81039125483337848, 
+                    "timestamp": 1428237418.716
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 359728000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79671383334290968, 
+                    "timestamp": 1428237421.306
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 361776000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.78831294965004328, 
+                    "timestamp": 1428237424.258
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 363824000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.78145225639384619, 
+                    "timestamp": 1428237426.557
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 365872000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79948569137212133, 
+                    "timestamp": 1428237428.648
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 367920000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79375633228388198, 
+                    "timestamp": 1428237432.279
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 369968000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79954780746791099, 
+                    "timestamp": 1428237435.109
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 372016000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.80838647497534133, 
+                    "timestamp": 1428237437.299
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 374064000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.85374616916174739, 
+                    "timestamp": 1428237439.569
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 376112000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81654269536911706, 
+                    "timestamp": 1428237441.799
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 378160000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.82009305287835388, 
+                    "timestamp": 1428237444.024
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 380208000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.80763492207038234, 
+                    "timestamp": 1428237446.235
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 382256000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81208424725186301, 
+                    "timestamp": 1428237448.457
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 384304000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.80559627485309893, 
+                    "timestamp": 1428237450.675
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 386352000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.81661820297405296, 
+                    "timestamp": 1428237452.873
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 388400000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.80291034288156649, 
+                    "timestamp": 1428237455.257
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 390448000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.82695490210882849, 
+                    "timestamp": 1428237457.658
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 392496000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.83503371660664361, 
+                    "timestamp": 1428237459.884
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 394544000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.88625477404690101, 
+                    "timestamp": 1428237462.543
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 396592000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.84224558282557782, 
+                    "timestamp": 1428237465.846
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 398640000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.88080089153217911, 
+                    "timestamp": 1428237468.019
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 400688000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.85313446491867895, 
+                    "timestamp": 1428237470.266
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 402736000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.83876280320820118, 
+                    "timestamp": 1428237473.189
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 404784000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.85633509463767288, 
+                    "timestamp": 1428237475.455
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 406832000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.86686873264693842, 
+                    "timestamp": 1428237477.684
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 408880000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.87941313893961237, 
+                    "timestamp": 1428237479.906
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 410928000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.89652511782841771, 
+                    "timestamp": 1428237482.129
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 412976000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 0.89546863020776679, 
+                    "timestamp": 1428237484.924
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 415024000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.91444583163144633, 
+                    "timestamp": 1428237488.478
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 417072000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.93435296606587392, 
+                    "timestamp": 1428237490.576
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 419120000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.92748993627765053, 
+                    "timestamp": 1428237493.249
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 421168000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 0.93337812390337183, 
+                    "timestamp": 1428237495.408
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 423216000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.99684324218443832, 
+                    "timestamp": 1428237497.611
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 425264000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 0.91963224411592126, 
+                    "timestamp": 1428237499.862
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 427312000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.9227274082529433, 
+                    "timestamp": 1428237502.109
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 429360000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.9252187069551675, 
+                    "timestamp": 1428237504.311
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 431408000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 0.96037403695115953, 
+                    "timestamp": 1428237506.515
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 433456000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.93500434465203364, 
+                    "timestamp": 1428237509.106
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 435504000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.92610379300172829, 
+                    "timestamp": 1428237511.151
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 437552000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.91468151771766759, 
+                    "timestamp": 1428237513.172
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 439600000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.910933625426806, 
+                    "timestamp": 1428237515.401
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 441648000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.89226254293953844, 
+                    "timestamp": 1428237518.04
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 443696000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.89107595002757634, 
+                    "timestamp": 1428237521.333
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 445744000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.88104690370048122, 
+                    "timestamp": 1428237523.435
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 447792000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.87851792970984899, 
+                    "timestamp": 1428237525.588
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 449840000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.86027252002131005, 
+                    "timestamp": 1428237527.686
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 451888000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.86353900147979479, 
+                    "timestamp": 1428237530.912
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 453936000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.86496736260625307, 
+                    "timestamp": 1428237533.024
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 455984000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.86208937191005663, 
+                    "timestamp": 1428237535.479
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 458032000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.8591955931929578, 
+                    "timestamp": 1428237537.697
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 460080000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.94164627005568202, 
+                    "timestamp": 1428237540.525
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 462128000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.837142488176014, 
+                    "timestamp": 1428237542.688
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 464176000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.84279516008062683, 
+                    "timestamp": 1428237544.925
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 466224000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.85950881822630487, 
+                    "timestamp": 1428237547.15
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 468272000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.8297958168079943, 
+                    "timestamp": 1428237549.354
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 470320000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.86088689484987468, 
+                    "timestamp": 1428237551.573
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 472368000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.89988982749824886, 
+                    "timestamp": 1428237554.597
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 474416000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.87947713080835921, 
+                    "timestamp": 1428237556.824
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 476464000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.87238577901657022, 
+                    "timestamp": 1428237559.213
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 478512000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.91178147637327567, 
+                    "timestamp": 1428237561.837
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 480560000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.6176920308356735, 
+                    "mean_amplitude": 1.8830647279603707, 
+                    "timestamp": 1428237565.615
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 482608000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.5166481891864549, 
+                    "mean_amplitude": 0.90409058332088399, 
+                    "timestamp": 1428237568.572
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 484656000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.8741891001225649, 
+                    "timestamp": 1428237570.917
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 486704000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84362857817652703, 
+                    "timestamp": 1428237573.122
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 488752000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.82863583596828005, 
+                    "timestamp": 1428237575.314
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 490800000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.8025653985958654, 
+                    "timestamp": 1428237578.252
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 492848000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.80772812711987163, 
+                    "timestamp": 1428237580.559
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 494896000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.81535562123106875, 
+                    "timestamp": 1428237582.888
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 496944000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.84640762412231163, 
+                    "timestamp": 1428237585.993
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 498992000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77566150839955772, 
+                    "timestamp": 1428237590.289
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 30000000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 14.159802258506295, 
+                    "mean_amplitude": 0.86266784782094097, 
+                    "timestamp": 1428237594.807
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 32048000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.88680933788677019, 
+                    "timestamp": 1428237596.893
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 34096000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.88369183947677676, 
+                    "timestamp": 1428237599.193
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 36144000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.95523170108669742, 
+                    "timestamp": 1428237602.391
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 38192000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0857943353893837, 
+                    "timestamp": 1428237604.552
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 40240000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.9056941504209481, 
+                    "mean_amplitude": 1.3152015067830836, 
+                    "timestamp": 1428237607.061
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 42288000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.2764726786234242, 
+                    "mean_amplitude": 1.2832391279549209, 
+                    "timestamp": 1428237610.104
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 44336000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.9056941504209481, 
+                    "mean_amplitude": 1.1803677065168359, 
+                    "timestamp": 1428237612.509
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 46384000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.6485292703891776, 
+                    "mean_amplitude": 1.2184839690095688, 
+                    "timestamp": 1428237614.967
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 48432000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.9056941504209481, 
+                    "mean_amplitude": 1.2358950322251514, 
+                    "timestamp": 1428237617.197
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 50480000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.3639610306789285, 
+                    "mean_amplitude": 0.99423407591805468, 
+                    "timestamp": 1428237620.278
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 52528000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.96199487440724196, 
+                    "timestamp": 1428237622.485
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 54576000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.89398602301130869, 
+                    "timestamp": 1428237624.599
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 56624000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.89449469433790985, 
+                    "timestamp": 1428237626.874
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 58672000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 0.85124728897515578, 
+                    "timestamp": 1428237630.259
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 60720000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.88813362703018517, 
+                    "timestamp": 1428237632.317
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 62768000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.84437852881903519, 
+                    "timestamp": 1428237634.785
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 64816000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78695823653880304, 
+                    "timestamp": 1428237638.339
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 66864000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.80055481412423712, 
+                    "timestamp": 1428237640.549
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 68912000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.76190440073731902, 
+                    "timestamp": 1428237642.935
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 70960000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.87655757729841555, 
+                    "timestamp": 1428237645.959
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 73008000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.78608457397712761, 
+                    "timestamp": 1428237648.393
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 75056000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.78273213656250173, 
+                    "timestamp": 1428237650.84
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 77104000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78470868553295015, 
+                    "timestamp": 1428237653.678
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 79152000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77756097718472361, 
+                    "timestamp": 1428237656.052
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 81200000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77304497256499938, 
+                    "timestamp": 1428237658.272
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 83248000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76294451993861401, 
+                    "timestamp": 1428237660.524
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 85296000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77859611893480207, 
+                    "timestamp": 1428237662.845
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 87344000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.93119336678713172, 
+                    "timestamp": 1428237666.347
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 89392000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 1.0402380367857404, 
+                    "timestamp": 1428237668.644
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 91440000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79246150573346452, 
+                    "timestamp": 1428237670.967
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 93488000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.8822626214001148, 
+                    "timestamp": 1428237673.201
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 95536000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73638460233267367, 
+                    "timestamp": 1428237675.418
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 97584000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.7839457127688807, 
+                    "timestamp": 1428237677.633
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 99632000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.76562064158507181, 
+                    "timestamp": 1428237679.857
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 101680000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.7434823753715436, 
+                    "timestamp": 1428237683.626
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 103728000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77712316847283269, 
+                    "timestamp": 1428237685.74
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 105776000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73691865095479114, 
+                    "timestamp": 1428237688.384
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 107824000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73225957084156623, 
+                    "timestamp": 1428237691.871
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 109872000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.72961575009381063, 
+                    "timestamp": 1428237693.964
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 111920000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73150491794811612, 
+                    "timestamp": 1428237696.414
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 113968000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73298322829530771, 
+                    "timestamp": 1428237698.62
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 116016000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.91208999694827697, 
+                    "timestamp": 1428237701.048
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 118064000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73121410647113794, 
+                    "timestamp": 1428237703.152
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 120112000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 1.0938084922669047, 
+                    "timestamp": 1428237705.981
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 122160000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73767550716626906, 
+                    "timestamp": 1428237708.347
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 124208000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73864454534549018, 
+                    "timestamp": 1428237710.55
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 126256000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.73826924481500844, 
+                    "timestamp": 1428237713.028
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 128304000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.7384355903185279, 
+                    "timestamp": 1428237715.513
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 130352000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74361561751089333, 
+                    "timestamp": 1428237718.558
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 132400000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.5495097567963927, 
+                    "mean_amplitude": 0.74095685764711217, 
+                    "timestamp": 1428237720.666
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 134448000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73621863095059004, 
+                    "timestamp": 1428237722.893
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 136496000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73543219230950541, 
+                    "timestamp": 1428237726.033
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 138544000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73161333098812642, 
+                    "timestamp": 1428237728.209
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 140592000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.75700603140381317, 
+                    "timestamp": 1428237730.429
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 142640000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.73352459887925514, 
+                    "timestamp": 1428237733.159
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 144688000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 1.228533207055901, 
+                    "timestamp": 1428237736.841
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 146736000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74180202029109787, 
+                    "timestamp": 1428237739.032
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 148784000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74204220527333131, 
+                    "timestamp": 1428237742.107
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 150832000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.74584753191787811, 
+                    "timestamp": 1428237744.309
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 152880000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.74998817428461062, 
+                    "timestamp": 1428237746.541
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 154928000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.75508623972593214, 
+                    "timestamp": 1428237748.757
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 156976000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.75068185885851735, 
+                    "timestamp": 1428237751.63
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 159024000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76217552391109678, 
+                    "timestamp": 1428237753.855
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 161072000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.76670071534239659, 
+                    "timestamp": 1428237756.076
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 163120000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77427397000240006, 
+                    "timestamp": 1428237758.283
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 165168000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.77586061689729846, 
+                    "timestamp": 1428237761.325
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 167216000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.77759730946248895, 
+                    "timestamp": 1428237763.544
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 169264000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.78174496419126438, 
+                    "timestamp": 1428237766.764
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 171312000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.77439763836848063, 
+                    "timestamp": 1428237769.002
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 173360000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.80763348128660839, 
+                    "timestamp": 1428237771.786
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 175408000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.79370673766823385, 
+                    "timestamp": 1428237774.012
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 177456000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.8306366007065501, 
+                    "timestamp": 1428237776.313
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 179504000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 0.878206647795991, 
+                    "timestamp": 1428237778.445
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 181552000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.5166481891864549, 
+                    "mean_amplitude": 0.88655034973734226, 
+                    "timestamp": 1428237781.549
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 183600000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.6176920308356735, 
+                    "mean_amplitude": 0.98509792216050307, 
+                    "timestamp": 1428237783.739
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 185648000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 10.977249200050075, 
+                    "mean_amplitude": 1.0821259213290584, 
+                    "timestamp": 1428237785.807
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 187696000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 11.510864433221338, 
+                    "mean_amplitude": 1.0838863178634621, 
+                    "timestamp": 1428237787.855
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 189744000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.509996003196806, 
+                    "mean_amplitude": 1.1978374629085675, 
+                    "timestamp": 1428237790.204
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 191792000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 13.209844813622906, 
+                    "mean_amplitude": 1.2182207863046499, 
+                    "timestamp": 1428237793.446
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 193840000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.020815280171307, 
+                    "mean_amplitude": 1.221040012991967, 
+                    "timestamp": 1428237795.498
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 195888000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 12.589678312014172, 
+                    "mean_amplitude": 1.206521132472995, 
+                    "timestamp": 1428237798.978
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 197936000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.905694150420949, 
+                    "mean_amplitude": 0.97600131201906459, 
+                    "timestamp": 1428237801.15
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 199984000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.905694150420949, 
+                    "mean_amplitude": 0.95980764976815491, 
+                    "timestamp": 1428237803.669
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 202032000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.3824115301167001, 
+                    "mean_amplitude": 0.92532626497753145, 
+                    "timestamp": 1428237806.049
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 204080000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 0.88619120794251371, 
+                    "timestamp": 1428237808.26
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 206128000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.80057149487336543, 
+                    "timestamp": 1428237810.938
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 208176000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.7974708044330876, 
+                    "timestamp": 1428237813.816
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 210224000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.79891055631792995, 
+                    "timestamp": 1428237816.447
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 212272000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.822194817595571, 
+                    "timestamp": 1428237820.197
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 214320000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.75917669554961631, 
+                    "timestamp": 1428237822.234
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 216368000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.75387195667847651, 
+                    "timestamp": 1428237825.133
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 218416000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.75489596731240349, 
+                    "timestamp": 1428237827.401
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 220464000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76130194731208145, 
+                    "timestamp": 1428237829.642
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 222512000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.79309064641651894, 
+                    "timestamp": 1428237831.855
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 224560000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.79447729110143461, 
+                    "timestamp": 1428237834.077
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 226608000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.7848622792117752, 
+                    "timestamp": 1428237836.283
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 228656000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.78932487043343746, 
+                    "timestamp": 1428237838.481
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 230704000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 1.0766608853456832, 
+                    "timestamp": 1428237840.874
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 232752000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.80544874613395678, 
+                    "timestamp": 1428237843.262
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 234800000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76476355649882843, 
+                    "timestamp": 1428237845.304
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 236848000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.74125570927568374, 
+                    "timestamp": 1428237847.332
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 238896000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.77550732925833321, 
+                    "timestamp": 1428237849.7
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 240944000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.795305137298571, 
+                    "timestamp": 1428237851.9
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 242992000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.77359774037154705, 
+                    "timestamp": 1428237854.797
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 245040000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.84041937804282563, 
+                    "timestamp": 1428237857.035
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 247088000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.90855646160376669, 
+                    "timestamp": 1428237859.252
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 249136000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.5166481891864549, 
+                    "mean_amplitude": 1.0277276878517809, 
+                    "timestamp": 1428237861.582
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 251184000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.7781745930520234, 
+                    "mean_amplitude": 1.0046803022802038, 
+                    "timestamp": 1428237864.116
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 253232000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.5166481891864549, 
+                    "mean_amplitude": 1.0597299866674481, 
+                    "timestamp": 1428237867.68
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 255280000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.3639610306789285, 
+                    "mean_amplitude": 0.8802542972582964, 
+                    "timestamp": 1428237869.757
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 257328000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.86131617377985237, 
+                    "timestamp": 1428237872.451
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 259376000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.6708320320631671, 
+                    "mean_amplitude": 1.0328601894829421, 
+                    "timestamp": 1428237874.923
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 261424000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.99229378315169903, 
+                    "timestamp": 1428237877.161
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 263472000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.3639610306789285, 
+                    "mean_amplitude": 0.92060362642278937, 
+                    "timestamp": 1428237879.669
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 265520000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.96914099388343455, 
+                    "timestamp": 1428237882.889
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 267568000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.013204753832357, 
+                    "timestamp": 1428237885.149
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 269616000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.84315989489305709, 
+                    "timestamp": 1428237887.199
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 271664000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.87799405091329008, 
+                    "timestamp": 1428237889.565
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 273712000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.98076806475160072, 
+                    "timestamp": 1428237893.701
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 275760000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.795178012233969, 
+                    "timestamp": 1428237896.174
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 277808000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.0678906361448388, 
+                    "timestamp": 1428237898.858
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 279856000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.0825911592666742, 
+                    "timestamp": 1428237901.099
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 281904000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 1.0044963870362158, 
+                    "timestamp": 1428237903.598
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 283952000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.8791071013762245, 
+                    "timestamp": 1428237906.278
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 286000000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.9169188668163879, 
+                    "timestamp": 1428237909.277
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 288048000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0785178484442444, 
+                    "timestamp": 1428237912.474
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 290096000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.96453914777362815, 
+                    "timestamp": 1428237914.569
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 292144000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 1.0082631972515785, 
+                    "timestamp": 1428237918.226
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 294192000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.91898689849066006, 
+                    "timestamp": 1428237945.586
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 296240000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84191648310784128, 
+                    "timestamp": 1428237947.97
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 298288000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.84367848458658401, 
+                    "timestamp": 1428237950.692
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 300336000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.9410056643012632, 
+                    "timestamp": 1428237953.188
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 302384000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.99842032261385172, 
+                    "timestamp": 1428237956.615
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 304432000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.75068028904775652, 
+                    "timestamp": 1428237958.827
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 306480000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.91093036090151447, 
+                    "timestamp": 1428237961.338
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 308528000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.9641941385920596, 
+                    "mean_amplitude": 0.85957421546614909, 
+                    "timestamp": 1428237964.209
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 310576000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.99022720496338756, 
+                    "timestamp": 1428237966.73
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 312624000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 1.0396082217722524, 
+                    "timestamp": 1428237968.782
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 314672000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 7.905694150420949, 
+                    "mean_amplitude": 1.2169411750992978, 
+                    "timestamp": 1428237970.823
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 316720000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 9.6176920308356717, 
+                    "mean_amplitude": 1.1821384818182674, 
+                    "timestamp": 1428237974.255
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 318768000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.0415229867972853, 
+                    "mean_amplitude": 0.91832860325423293, 
+                    "timestamp": 1428237976.188
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 320816000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.86966258449490841, 
+                    "timestamp": 1428237978.314
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 322864000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.79387125252045654, 
+                    "timestamp": 1428237980.286
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 324912000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.89266492604960612, 
+                    "timestamp": 1428237982.777
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 326960000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.87068693173164158, 
+                    "timestamp": 1428237984.71
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 329008000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.5192024052026492, 
+                    "mean_amplitude": 0.8496519941473617, 
+                    "timestamp": 1428237986.642
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 331056000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.84281190737742195, 
+                    "timestamp": 1428237988.575
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 333104000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.83681018435764398, 
+                    "timestamp": 1428237990.532
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 335152000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.82003212197841735, 
+                    "timestamp": 1428237992.49
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 337200000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.83209230033943893, 
+                    "timestamp": 1428237994.538
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 339248000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.76928314071773007, 
+                    "timestamp": 1428237996.46
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 341296000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8128862413579534, 
+                    "timestamp": 1428237998.851
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 343344000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.78174688353737321, 
+                    "timestamp": 1428238000.839
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 345392000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.84269873483105551, 
+                    "timestamp": 1428238002.838
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 347440000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79297837652812853, 
+                    "timestamp": 1428238005.083
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 349488000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.79266222316328683, 
+                    "timestamp": 1428238007.294
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 351536000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.81664934817255797, 
+                    "timestamp": 1428238009.698
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 353584000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.79683256874639508, 
+                    "timestamp": 1428238012.875
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 355632000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77142157133127798, 
+                    "timestamp": 1428238015.124
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 357680000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.76969131332129492, 
+                    "timestamp": 1428238017.386
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 359728000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.78592965905623036, 
+                    "timestamp": 1428238019.59
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 361776000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77193094320997424, 
+                    "timestamp": 1428238021.848
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 363824000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.77903228993217888, 
+                    "timestamp": 1428238024.496
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 365872000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.817623485076165, 
+                    "timestamp": 1428238026.87
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 367920000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.85028263697082918, 
+                    "timestamp": 1428238030.514
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 369968000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.82333001220866731, 
+                    "timestamp": 1428238032.58
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 372016000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84906996767123821, 
+                    "timestamp": 1428238035.299
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 374064000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.88627480820496851, 
+                    "timestamp": 1428238037.585
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 376112000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.83561438207227645, 
+                    "timestamp": 1428238040.464
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 378160000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.85405865893703481, 
+                    "timestamp": 1428238042.794
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 380208000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81444551573544066, 
+                    "timestamp": 1428238045.693
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 382256000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84421805708636954, 
+                    "timestamp": 1428238048.798
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 384304000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.84404891416865935, 
+                    "timestamp": 1428238050.882
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 386352000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.8622106408232334, 
+                    "timestamp": 1428238054.397
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 388400000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.81537071959965046, 
+                    "timestamp": 1428238056.416
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 390448000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.85116436432517295, 
+                    "timestamp": 1428238059.075
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 392496000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.85382722547302203, 
+                    "timestamp": 1428238061.212
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 394544000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.89613673780678493, 
+                    "timestamp": 1428238063.473
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 396592000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.8394087960260318, 
+                    "timestamp": 1428238065.68
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 398640000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.86814031436234818, 
+                    "timestamp": 1428238068.996
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 400688000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.82765570814601686, 
+                    "timestamp": 1428238071.199
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 402736000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81864419402588462, 
+                    "timestamp": 1428238073.584
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 404784000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.81669339961602694, 
+                    "timestamp": 1428238076.404
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 406832000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.84918165849193139, 
+                    "timestamp": 1428238078.935
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 408880000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.84563879580561063, 
+                    "timestamp": 1428238081.182
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 410928000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.87643221924010772, 
+                    "timestamp": 1428238083.797
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 412976000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.86239356469499862, 
+                    "timestamp": 1428238087.759
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 415024000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.88057962407541235, 
+                    "timestamp": 1428238090.12
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 417072000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.89503652678634704, 
+                    "timestamp": 1428238093.277
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 419120000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.90187788215269382, 
+                    "timestamp": 1428238096.443
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 421168000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.90262505605858301, 
+                    "timestamp": 1428238098.596
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 423216000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.96206082172856933, 
+                    "timestamp": 1428238102.082
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 425264000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.87917871256660274, 
+                    "timestamp": 1428238104.15
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 427312000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.8872605300088402, 
+                    "timestamp": 1428238106.713
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 429360000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.89128159172019994, 
+                    "timestamp": 1428238108.773
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 431408000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.91531201935951934, 
+                    "timestamp": 1428238110.814
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 433456000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.5226805085936306, 
+                    "mean_amplitude": 0.89833631028745087, 
+                    "timestamp": 1428238113.227
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 435504000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.88969304219088896, 
+                    "timestamp": 1428238116.475
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 437552000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.8780968893404999, 
+                    "timestamp": 1428238118.514
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 439600000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.87682944418507047, 
+                    "timestamp": 1428238122.035
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 441648000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.85407688632937673, 
+                    "timestamp": 1428238124.353
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 443696000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.9497474683058327, 
+                    "mean_amplitude": 0.86376485339579578, 
+                    "timestamp": 1428238126.635
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 445744000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.86811904949375662, 
+                    "timestamp": 1428238128.863
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 447792000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.85792641480795995, 
+                    "timestamp": 1428238131.143
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 449840000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8389888092047012, 
+                    "timestamp": 1428238133.416
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 451888000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.84639102527414356, 
+                    "timestamp": 1428238136.467
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 453936000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.85100941817269737, 
+                    "timestamp": 1428238138.62
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 455984000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.85606570698211526, 
+                    "timestamp": 1428238141.056
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 458032000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.8577873025186038, 
+                    "timestamp": 1428238143.247
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 460080000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.7008771254956896, 
+                    "mean_amplitude": 0.94104325612422235, 
+                    "timestamp": 1428238146.157
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 462128000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.83486350495956629, 
+                    "timestamp": 1428238148.344
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 464176000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.85502436689095596, 
+                    "timestamp": 1428238150.585
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 466224000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.88090782401410361, 
+                    "timestamp": 1428238152.855
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 468272000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.84191099106489675, 
+                    "timestamp": 1428238156.071
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 470320000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.85747870294515094, 
+                    "timestamp": 1428238158.127
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 472368000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.88619096754576776, 
+                    "timestamp": 1428238161.604
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 474416000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8805796779661732, 
+                    "timestamp": 1428238163.646
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 476464000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.86637626152429659, 
+                    "timestamp": 1428238166.274
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 478512000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 5.1478150704935004, 
+                    "mean_amplitude": 0.89657655336107944, 
+                    "timestamp": 1428238168.509
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 480560000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 8.6313382508160341, 
+                    "mean_amplitude": 1.8004441253222307, 
+                    "timestamp": 1428238171.258
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 482608000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 6.9641941385920596, 
+                    "mean_amplitude": 0.88025254795820063, 
+                    "timestamp": 1428238173.696
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 484656000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.88292434134218922, 
+                    "timestamp": 1428238176.499
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 486704000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.3011626335213133, 
+                    "mean_amplitude": 0.85987099768407216, 
+                    "timestamp": 1428238178.791
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 488752000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.8382009824000991, 
+                    "timestamp": 1428238180.924
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 490800000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.8078865529319543, 
+                    "mean_amplitude": 0.77743038099891859, 
+                    "timestamp": 1428238185.219
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 492848000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 2.9154759474226499, 
+                    "mean_amplitude": 0.76773764600884276, 
+                    "timestamp": 1428238187.401
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 494896000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 3.5355339059327378, 
+                    "mean_amplitude": 0.7687996374998135, 
+                    "timestamp": 1428238190.198
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 496944000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.5276925690687087, 
+                    "mean_amplitude": 0.77472558533485658, 
+                    "timestamp": 1428238192.376
+                }, 
+                {
+                    "alt": 30.0, 
+                    "frequency": 498992000, 
+                    "lat": 52.4935, 
+                    "lon": 7.629, 
+                    "max_amplitude": 4.7434164902525691, 
+                    "mean_amplitude": 0.77177468014222095, 
+                    "timestamp": 1428238194.589
+                }
+            ]
+        }, 
+        "workunitid": "20150410_1234"
+    }, 
+    "meta": {
+        "client": {
+            "id": "51043c380f4e831d0c9bf9d604c769ca858c4f0e7d743fad010597b3", 
+            "name": "NodeZero", 
+            "sensor": {
+                "antenna": "custom,dipol,75cm", 
+                "id": 0, 
+                "name": "generic sdr device", 
+                "ppm": 0
+            }, 
+            "url": "www.AerospaceResearch.net"
+        }, 
+        "sw": {
+            "bit": "32bit64bit", 
+            "os": "WinLinuxOS", 
+            "version": 0
+        }
+    }
+}
