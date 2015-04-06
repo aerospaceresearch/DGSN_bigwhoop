@@ -108,9 +108,27 @@ static void db_init(soci::session& sql) throw (std::exception)
   } else {
     sql << "CREATE TABLE IF NOT EXISTS data("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "time REAL, freq INTEGER, amp_max REAL, amp_mean REAL, "
-        "scan_mode TEXT, location_alt REAL, location_lat REAL, "
-        "location_lon REAL, id_client INTEGER, id_sw INTEGER );";
+        "time REAL, "
+        "freq INTEGER, "
+        "amp_max REAL, "
+        "amp_mean REAL, "
+        "scan_mode TEXT, "
+        "location_alt REAL, "
+        "location_lat REAL, "
+        "location_lon REAL, "
+        "client_id_hash TEXT, "
+        "client_name TEXT, "
+        "sensor_id INTEGER, "
+        "sensor_name TEXT, "
+        "sensor_antenna TEXT, "
+        "sensor_ppm INTEGER, "
+        "wu_id TEXT, "
+        "url TEXT, "
+        "sw_bit INTEGER, "
+        "sw_os TEXT, "
+        "sw_v_major INTEGER, "
+        "sw_v_minor INTEGER, "
+        "sw_v_revision INTEGER);";
     log::write(log::verbose, "    data table created\n");
   }
 
@@ -126,35 +144,6 @@ static void db_init(soci::session& sql) throw (std::exception)
         "time REAL, "
         "location_alt REAL, location_lat REAL, location_lon REAL);";
     log::write(log::verbose, "    adsb table created\n");
-  }
-
-  if(table_exists(sql, "client")) {
-    int count_entries;
-    sql << "SELECT Count(*) FROM client;", soci::into(count_entries);
-    log:: write(log::verbose, "    found client data (%d entries)\n",
-        count_entries);
-    count_entries_total += count_entries;
-  } else {
-    sql << "CREATE TABLE IF NOT EXISTS client("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "id_hash INTEGER, name TEXT, sensor_id INTEGER, "
-        "sensor_name TEXT, sensor_antenna TEXT, wu_id TEXT, "
-        "sensor_ppm INTEGER, url TEXT);";
-    log::write(log::verbose, "    client data table created\n");
-  }
-
-  if(table_exists(sql, "software")) {
-    int count_entries;
-    sql << "SELECT Count(*) FROM software;", soci::into(count_entries);
-    log:: write(log::verbose, "    found software data (%d entries)\n",
-        count_entries);
-    count_entries_total += count_entries;
-  } else {
-    sql << "CREATE TABLE IF NOT EXISTS software("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "bit INTEGER, os TEXT, v_major INTEGER, v_minor INTEGER, "
-        "v_revision INTEGER);";
-    log::write(log::verbose, "    software data table created\n");
   }
 
   end = std::chrono::system_clock::now();
@@ -194,7 +183,7 @@ static void remove_duplicates(soci::session& sql)
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, " to be done [%d%s]\n", duration,
+  log::write(log::debug, " skipped [%d%s]\n", duration,
       duration_unit_string);
 }
 

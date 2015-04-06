@@ -38,20 +38,23 @@ void Parser::query(soci::session& sql) const
   log::write(log::debug, "  updating database …\n");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
-  unsigned int id_sw = 0u;
-  unsigned int id_client = 0u;
   {
     // TODO: Insert entries only once
-    log::write(log::verbose, "    update metadata …");
+    constexpr const char* const scan_mode = "analyze_full_spectrum_basic";
+    const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
+    size_t count_datasets = datasets.size();
+    log::write(log::verbose, "    update %u datasets …",
+        count_datasets);
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
+
     const std::string wu_id
       = root_["data"].get("workunitid", "<no entry>").asString();
     const Json::Value& metadata = root_["meta"];
 
-    const std::string id_hash
+    const std::string client_id_hash
       = metadata["client"].get("id", "<no entry>").asString();
-    const std::string name
+    const std::string client_name
       = metadata["client"].get("name", "<no entry>").asString();
     const int sensor_id
       = metadata["client"]["sensor"].get("id", 0).asInt();
@@ -65,13 +68,22 @@ void Parser::query(soci::session& sql) const
     const std::string url
       = metadata["client"].get("url", "<no entry>").asString();
 
+    const std::string sw_bit
+      = metadata["sw"].get("bit", "<no entry>").asString();
+    const std::string sw_os
+      = metadata["sw"].get("os", "<no entry>").asString();
+    const unsigned int sw_version
+      = metadata["sw"].get("version", 0u).asUInt();
+
     // TODO: Sanity checks:
     //       • max. length for strings
     //       • url is an URL
-    if(id_hash.length() != 56u) {
+    //       • max. length for strings
+    //       • version <= current version
+    if(client_id_hash.length() != 56u) {
       throw std::runtime_error("Id hash has wrong size");
     }
-    if(name.length() > 2048u) {
+    if(client_name.length() > 2048u) {
       throw std::runtime_error("Client name is too long");
     }
     if(sensor_name.length() > 2048u) {
@@ -83,60 +95,16 @@ void Parser::query(soci::session& sql) const
     if(url.length() > 2048u) {
       throw std::runtime_error("URL is too long");
     }
-
-    sql << "INSERT INTO client (id_hash, name, sensor_id, "
-        "sensor_name, sensor_antenna, wu_id, sensor_ppm, url) "
-        "VALUES ("
-        << '\'' << id_hash << '\'' << ", "
-        << '\'' << name << '\'' << ", "
-        << sensor_id << ", "
-        << '\'' << sensor_name << '\'' << ", "
-        << '\'' << sensor_antenna << '\'' << ", "
-        << '\'' << wu_id << '\'' << ", "
-        << sensor_ppm << ", "
-        << '\'' << url << '\'' << ");";
-
-    const std::string bit
-      = metadata["sw"].get("bit", "<no entry>").asString();
-    const std::string os
-      = metadata["sw"].get("os", "<no entry>").asString();
-    const unsigned int version
-      = metadata["sw"].get("version", 0u).asUInt();
-
-    // TODO: Sanity checks:
-    //       • max. length for strings
-    //       • version > current version
-    if(bit.length() > 2048u) {
+    if(wu_id.length() > 2048u) {
+      throw std::runtime_error("Workunit ID is too long");
+    }
+    if(sw_bit.length() > 2048u) {
       throw std::runtime_error("Bit description is too long");
     }
-    if(os.length() > 2048u) {
+    if(sw_os.length() > 2048u) {
       throw std::runtime_error("Operating System description is too long");
     }
 
-    sql << "INSERT INTO software (bit, os, "
-        "v_major, v_minor, v_revision) "
-        "VALUES ("
-        << '\'' << bit << '\'' << ", "
-        << '\'' << os << '\'' << ", "
-        << version << ", "
-        << version << ", "
-        << sensor_id << ");";
-
-    end = std::chrono::system_clock::now();
-    unsigned long duration
-      = std::chrono::duration_cast<duration_unit>(end-start).count();
-    log::write(log::verbose, " done [%d%s]\n", duration,
-        duration_unit_string);
-  }
-  {
-    // TODO: Insert entries only once
-    constexpr const char* const scan_mode = "analyze_full_spectrum_basic";
-    const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
-    size_t count_datasets = datasets.size();
-    log::write(log::verbose, "    update %u datasets …",
-        count_datasets);
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
     for(Json::Value::ArrayIndex data_index = 0;
         data_index < count_datasets; ++data_index) {
       const float location_alt
@@ -157,8 +125,13 @@ void Parser::query(soci::session& sql) const
       // TODO: Sanity checks:
       //       • amp_mean <= amp_max
       //       • timestamp > 0
-      if(time < 0) {
+      if(time < 0.0f) {
         throw std::runtime_error("Timestamp is negative");
+      }
+      // TODO: Update reference timestamp at first release
+      if(time < 1428173824.0f) {
+        std::cout << std::endl << std::fixed << time << std::endl;
+        throw std::runtime_error("Timestamp is too old");
       }
       auto unix_timestamp = std::chrono::seconds(std::time(NULL));
       int unix_timestamp_sec
@@ -172,11 +145,35 @@ void Parser::query(soci::session& sql) const
       if(amp_mean < 0) {
         throw std::runtime_error("Mean amplitude is negative");
       }
+      if(amp_mean > amp_max) {
+        throw std::runtime_error(
+            "Mean amplitude is greater than maximum");
+      }
 
-      sql << "INSERT INTO data (time, freq, amp_max, amp_mean,"
-             "scan_mode, location_alt, location_lat, "
-             "location_lon, id_client, id_sw) "
+      sql << "INSERT INTO data ("
+             "time, "
+             "freq, "
+             "amp_max, "
+             "amp_mean, "
+             "scan_mode, "
+             "location_alt, "
+             "location_lat, "
+             "location_lon, "
+             "client_id_hash, "
+             "client_name, "
+             "sensor_id, "
+             "sensor_name, "
+             "sensor_antenna, "
+             "sensor_ppm, "
+             "wu_id, "
+             "url, "
+             "sw_bit, "
+             "sw_os, "
+             "sw_v_major, "
+             "sw_v_minor, "
+             "sw_v_revision) "
              "VALUES ("
+             << std::fixed
              << time << ", "
              << freq << ", "
              << amp_max << ", "
@@ -185,8 +182,19 @@ void Parser::query(soci::session& sql) const
              << location_alt << ", "
              << location_lat << ", "
              << location_lon << ", "
-             << id_client << ", "
-             << id_sw << ");";
+             << '\'' << client_id_hash << '\'' << ", "
+             << '\'' << client_name << '\'' << ", "
+             << sensor_id << ", "
+             << '\'' << sensor_name << '\'' << ", "
+             << '\'' << sensor_antenna << '\'' << ", "
+             << sensor_ppm << ", "
+             << '\'' << wu_id << '\'' << ", "
+             << '\'' << url << '\'' << ", "
+             << '\'' << sw_bit << '\'' << ", "
+             << '\'' << sw_os << '\'' << ", "
+             << '\'' << sw_version << '\'' << ", "
+             << '\'' << sw_version << '\'' << ", "
+             << '\'' << sw_version << '\'' << ");";
     }
     end = std::chrono::system_clock::now();
     unsigned long duration

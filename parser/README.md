@@ -41,9 +41,30 @@ The data is stored in a sqlite3 database according to the following layout.
 
 ### Table: data
 
-| id | time | freq | amp_max | amp_mean | scan_mode | location | id_client | id_sw |
-|---:|-----:|-----:|--------:|---------:|----------:|---------:|----------:|------:|
-| .. |   .. |   .. |      .. |       .. |        .. |       .. |        .. |    .. |
+| id | time | freq | amp_max | amp_mean | scan_mode | <location> | <client> | <software> |
+|---:|-----:|-----:|--------:|---------:|----------:|-----------:|---------:|-----------:|
+| .. |   .. |   .. |      .. |       .. |        .. |         .. |       .. |         .. |
+
+
+### Table part: location in data
+
+| .. | location_alt | location_lat | location_lon | .. |
+|---:|-------------:|-------------:|-------------:|---:|
+| .. |           .. |           .. |           .. | .. |
+
+
+### Table part: client in data
+
+| .. | client_id_hash | client_name | sensor_id | sensor_name | sensor_antenna | sensor_ppm | wu | url | .. |
+|---:|---------------:|------------:|----------:|------------:|---------------:|-----------:|---:|----:|---:|
+| .. |             .. |          .. |        .. |          .. |             .. |         .. | .. |  .. | .. |
+
+
+### Table part: software in data
+
+| .. | sw_bit | sw_os | sw_v_major | sw_v_minor | sw_v_revision | .. |
+|---:|-------:|------:|-----------:|-----------:|--------------:|---:|
+| .. |     .. |    .. |         .. |         .. |            .. | .. |
 
 
 ### Table: adsb
@@ -51,20 +72,6 @@ The data is stored in a sqlite3 database according to the following layout.
 | id | time | alt | lat | lon |
 |---:|-----:|----:|----:|----:|
 | .. |   .. |  .. |  .. |  .. |
-
-
-### Table: client
-
-| id | id_hash | name | sensor_id | sensor_name | sensor_antenna | wu | sensor_ppm | url |
-|---:|--------:|-----:|----------:|------------:|---------------:|---:|-----------:|----:|
-| .. |      .. |   .. |        .. |          .. |             .. | .. |         .. |  .. |
-
-
-### Table: software
-
-| id | bit | os | v_major | v_minor | v_revision |
-|---:|----:|---:|--------:|--------:|-----------:|
-| .. |  .. | .. |      .. |      .. |         .. |
 
 
 ## References
