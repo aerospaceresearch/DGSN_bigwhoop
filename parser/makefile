@@ -12,7 +12,7 @@ CC = g++
 all: ${PRO}
 
 options:
-	@echo simplesrv build options:
+	@echo parser build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "CPPFLAGS = ${CPPFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
