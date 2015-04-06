@@ -134,8 +134,7 @@ void Parser::query(soci::session& sql) const
         = datasets[data_index].get("mean_amplitude", 0.0).asDouble();
 
       // TODO: Sanity checks:
-      //       • amp_mean <= amp_max
-      //       • timestamp > 0
+      //  • client_id_hash is hex
       if(time < 0.0f) {
         throw std::runtime_error("Timestamp is negative");
       }
