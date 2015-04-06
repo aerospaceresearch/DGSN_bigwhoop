@@ -41,7 +41,7 @@ The data is stored in a sqlite3 database according to the following layout.
 
 ### Table: data
 
-| id | time | freq | amp_max | amp_mean | scan_mode | <location> | <client> | <software> |
+| id | time | freq | amp_max | amp_mean | scan_mode | [location] | [client] | [software] |
 |---:|-----:|-----:|--------:|---------:|----------:|-----------:|---------:|-----------:|
 | .. |   .. |   .. |      .. |       .. |        .. |         .. |       .. |         .. |
 
