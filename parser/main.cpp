@@ -91,8 +91,9 @@ static void db_init(soci::session& sql) throw (std::exception)
           "    [Warning] Version mismatch between parser and database\n");
     }
   } else {
-    sql << "CREATE TABLE IF NOT EXISTS db_version(v_major INTEGER, "
-      "v_minor INTEGER);";
+    sql << "CREATE TABLE IF NOT EXISTS db_version("
+      "v_major INTEGER UNIQUE, "
+      "v_minor INTEGER UNIQUE);";
     sql << "INSERT INTO db_version VALUES(:v_major,:v_minor)",
       soci::use(VERSION_MAJOR), soci::use(VERSION_MINOR);
     log::write(log::debug, "    created database: v%u.%u\n",
@@ -222,7 +223,6 @@ static void check_database(soci::session& sql)
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
   // TODO:
-  // • Only one entry in table version
   // • Check the uniqueness of entries
   end = std::chrono::system_clock::now();
   unsigned long duration
