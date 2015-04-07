@@ -12,7 +12,7 @@
 #include "parser.hpp"
 
 
-/*
+/**
  * @brief Print version
  */
 static void print_version() noexcept
@@ -21,7 +21,7 @@ static void print_version() noexcept
     << "." << VERSION_MINOR << "." << VERSION_REVISION << std::endl;
 }
 
-/*
+/**
  * @brief Print usage
  */
 static void print_usage() noexcept
@@ -29,7 +29,7 @@ static void print_usage() noexcept
   std::cout << "Usage: ./parser <file.json>" << std::endl;
 }
 
-/*
+/**
  * @brief Greeting message.
  */
 static void greeting() noexcept
@@ -38,7 +38,7 @@ static void greeting() noexcept
   std::cout << "Here we go!" << std::endl;
 }
 
-/*
+/**
  * @brief Message to say good bye.
  */
 static void valediction() noexcept
@@ -46,7 +46,7 @@ static void valediction() noexcept
   std::cout << "Good bye!" << std::endl;
 }
 
-/*
+/**
  * @brief Check if a table exists in the database.
  */
 static bool table_exists(soci::session& sql, const std::string& table)
@@ -59,7 +59,7 @@ static bool table_exists(soci::session& sql, const std::string& table)
   return table_found;
 }
 
-/*
+/**
  * @brief Check and setup the database.
  *
  * Note: If using other database library than sqlite3, additional
@@ -153,7 +153,7 @@ static void db_init(soci::session& sql) throw (std::exception)
       count_entries_total, duration, duration_unit_string);
 }
 
-/*
+/**
  * @brief Get file extension.
  */
 std::string get_ext(std::string path) noexcept
@@ -163,7 +163,7 @@ std::string get_ext(std::string path) noexcept
    return ext;
 }
 
-/*
+/**
  * @brief Remove duplicate entries in the database tables.
  */
 static void remove_duplicates(soci::session& sql)
@@ -172,12 +172,12 @@ static void remove_duplicates(soci::session& sql)
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
 
-  sql << "delete   from data "
-         "where    rowid not in "
+  sql << "DELETE   FROM data "
+         "WHERE    rowid NOT IN "
          "( "
-         "select min(rowid) "
-         "from    data "
-         "group by "
+         "SELECT MIN(rowid) "
+         "FROM    data "
+         "GROUP BY "
          "        time"
          ",       freq"
          ",       amp_max"
@@ -194,12 +194,12 @@ static void remove_duplicates(soci::session& sql)
          ",       wu_id"
          ");";
 
-  sql << "delete   from adsb "
-         "where    rowid not in "
+  sql << "DELETE   FROM adsb "
+         "WHERE    rowid NOT IN "
          "( "
-         "select min(rowid) "
-         "from    adsb "
-         "group by "
+         "SELECT MIN(rowid) "
+         "FROM    adsb "
+         "GROUP BY "
          "        time"
          ",       location_alt"
          ",       location_lat"
@@ -213,7 +213,7 @@ static void remove_duplicates(soci::session& sql)
       duration_unit_string);
 }
 
-/*
+/**
  * @brief Performs various checks to validate the database.
  */
 static void check_database(soci::session& sql)
@@ -231,7 +231,7 @@ static void check_database(soci::session& sql)
       duration_unit_string);
 }
 
-/*
+/**
  * @brief Main function
  */
 int main(int argc, char** argv)

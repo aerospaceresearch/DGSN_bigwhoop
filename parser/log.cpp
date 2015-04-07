@@ -1,6 +1,6 @@
+#include "log.hpp"
 #include "main.hpp"
 
-#include "log.hpp"
 
 bool log::initialised_;
 int  log::loglevel_;

@@ -3,6 +3,12 @@
 #include <cstdarg>
 #include <cstdio>
 
+
+/**
+ * @class log
+ *
+ * @brief Class for basic logging to standard output.
+ */
 class log
 {
   public:

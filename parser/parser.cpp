@@ -9,18 +9,26 @@
 #include "main.hpp"
 #include "parser.hpp"
 
-
+/**
+ * @brief Overload operator << for a nicer syntax.
+ */
 soci::session& operator<<(soci::session& sql, const Parser& p)
 {
   p.query(sql);
   return sql;
 }
 
+/**
+ * @brief Construct the Parser object.
+ */
 Parser::Parser(std::istream& input)
 {
   parse(input);
 }
 
+/**
+ * @brief Parse input file as JSON.
+ */
 void Parser::parse(std::istream& input)
 {
   log::write(log::debug, "  parsing JSON object …");
@@ -33,6 +41,9 @@ void Parser::parse(std::istream& input)
   log::write(log::debug, " done [%d%s]\n", duration, duration_unit_string);
 }
 
+/**
+ * @brief Fill the database with the entries from the JSON file.
+ */
 void Parser::query(soci::session& sql) const
 {
   log::write(log::debug, "  updating database …\n");
