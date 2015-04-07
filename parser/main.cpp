@@ -171,15 +171,41 @@ static void remove_duplicates(soci::session& sql)
   log::write(log::debug, "  remove duplicate entries …");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
-  // TODO: Verify!
-  //sql << "DELETE FROM data WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
-  //  "data GROUP BY time);";
-  //sql << "DELETE FROM geolocation WHERE rowid NOT IN "
-  //  "(SELECT MAX(rowid) FROM data GROUP BY id);";
-  //sql << "DELETE FROM client WHERE rowid NOT IN (SELECT MAX(rowid) FROM "
-  //  "data GROUP BY id);";
-  //sql << "DELETE FROM software WHERE rowid NOT IN "
-  //  "(SELECT MAX(rowid) FROM data GROUP BY id);";
+
+  sql << "delete   from data "
+         "where    rowid not in "
+         "( "
+         "select min(rowid) "
+         "from    data "
+         "group by "
+         "        time"
+         ",       freq"
+         ",       amp_max"
+         ",       amp_mean"
+         ",       scan_mode"
+         ",       location_alt"
+         ",       location_lat"
+         ",       location_lon"
+         ",       client_id_hash"
+         ",       sensor_id"
+         ",       sensor_name"
+         ",       sensor_antenna"
+         ",       sensor_ppm"
+         ",       wu_id"
+         ");";
+
+  sql << "delete   from adsb "
+         "where    rowid not in "
+         "( "
+         "select min(rowid) "
+         "from    adsb "
+         "group by "
+         "        time"
+         ",       location_alt"
+         ",       location_lat"
+         ",       location_lon"
+         ");";
+
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
