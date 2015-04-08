@@ -22,13 +22,13 @@ void Options::init(int argc, const char * const * const argv)
   namespace bpo = boost::program_options;
 
   desc_.add_options()
-    ("help", "print help message")
+    ("help,h", "print help message")
     ("version", "print version")
-    ("no-db-checks", "skip database checks")
-    ("no-remove-duplicates", "do not remove duplicate entries")
-    ("info-only", "print information about JSON file and current database")
-    ("quiet", "quiet output")
-    ("verbose", "verbose output")
+    ("no-db-checks,c", "skip database checks")
+    ("no-remove-duplicates,d", "do not remove duplicate entries")
+    ("info-only,i", "print information about JSON file and current database")
+    ("quiet,q", "quiet output")
+    ("verbose,v", "verbose output")
     ("input-file", bpo::value<std::vector<std::string>>(),
         "JSON input file")
     ;
