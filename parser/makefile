@@ -1,9 +1,10 @@
 PRO = parser
-SRC = main.cpp parser.cpp log.cpp
+SRC = main.cpp parser.cpp log.cpp options.cpp
 OBJ = ${SRC:.cpp=.o}
 
 INCS = -I/usr/local/include/soci
-LIBS = -ljsoncpp -lsoci_core -lsoci_sqlite3 -Wl,-rpath=/usr/local/lib64/
+LIBS = -ljsoncpp -lsoci_core -lsoci_sqlite3 -Wl,-rpath=/usr/local/lib64/\
+			 -lboost_program_options
 CFLAGS = -std=c99 -Os
 CPPFLAGS = -std=c++11 -Os ${INCS} -g -Wunused
 LDFLAGS = ${LIBS}

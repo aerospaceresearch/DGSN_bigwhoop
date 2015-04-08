@@ -34,7 +34,7 @@ constexpr const char* const SQL_LOG_FILE = "";
  *                  log::fatal
  *                  log::none
  */
-constexpr const unsigned int LOG_LEVEL = log::all;
+constexpr const log::level LOG_LEVEL = log::level::debug;
 
 /**
  * @brief Unit for duration output according to different tasks.

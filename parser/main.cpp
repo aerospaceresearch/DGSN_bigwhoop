@@ -9,6 +9,7 @@
 
 #include "log.hpp"
 #include "main.hpp"
+#include "options.hpp"
 #include "parser.hpp"
 
 
@@ -17,16 +18,8 @@
  */
 static void print_version() noexcept
 {
-  std::cout << "DGSN BigWhoop parser v" << VERSION_MAJOR
-    << "." << VERSION_MINOR << "." << VERSION_REVISION << std::endl;
-}
-
-/**
- * @brief Print usage
- */
-static void print_usage() noexcept
-{
-  std::cout << "Usage: ./parser <file.json>" << std::endl;
+  log::write(log::level::info, "DGSN BigWhoop parser v%d.%d.%d\n",
+      VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION);
 }
 
 /**
@@ -35,7 +28,7 @@ static void print_usage() noexcept
 static void greeting() noexcept
 {
   print_version();
-  std::cout << "Here we go!" << std::endl;
+  log::write(log::level::info, "Here we go!\n");
 }
 
 /**
@@ -43,7 +36,7 @@ static void greeting() noexcept
  */
 static void valediction() noexcept
 {
-  std::cout << "Good bye!" << std::endl;
+  log::write(log::level::info, "Done and done. Good bye!\n");
 }
 
 /**
@@ -67,7 +60,7 @@ static bool table_exists(soci::session& sql, const std::string& table)
  */
 static void db_init(soci::session& sql) throw (std::exception)
 {
-  log::write(log::debug, "  database initialisation …\n");
+  log::write(log::level::debug, "  database initialisation …\n");
   size_t count_entries_total = 0u;
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
@@ -77,17 +70,17 @@ static void db_init(soci::session& sql) throw (std::exception)
     int v_major, v_minor;
     sql << "SELECT Count(*) FROM db_version;", soci::into(count_entries);
     if(count_entries != 1) {
-      log::write(log::error,
+      log::write(log::level::error,
           "    [Error] Database is ill-formed! (%d version entries)\n",
           count_entries);
     }
     sql << "SELECT v_major FROM db_version", soci::into(v_major);
     sql << "SELECT v_minor FROM db_version", soci::into(v_minor);
-    log::write(log::verbose, "    found database: v%u.%u\n",
+    log::write(log::level::verbose, "    found database: v%d.%d\n",
       v_major, v_minor);
     if(VERSION_MAJOR != v_major ||
        VERSION_MINOR != v_minor) {
-      log::write(log::warning,
+      log::write(log::level::warning,
           "    [Warning] Version mismatch between parser and database\n");
     }
   } else {
@@ -96,14 +89,14 @@ static void db_init(soci::session& sql) throw (std::exception)
       "v_minor INTEGER UNIQUE);";
     sql << "INSERT INTO db_version VALUES(:v_major,:v_minor)",
       soci::use(VERSION_MAJOR), soci::use(VERSION_MINOR);
-    log::write(log::debug, "    created database: v%u.%u\n",
+    log::write(log::level::debug, "    created database: v%u.%u\n",
       VERSION_MAJOR, VERSION_MINOR);
   }
 
   if(table_exists(sql, "data")) {
     int count_entries;
     sql << "SELECT Count(*) FROM data;", soci::into(count_entries);
-    log::write(log::verbose, "    found data (%d entries)\n",
+    log::write(log::level::verbose, "    found data (%d entries)\n",
         count_entries);
     count_entries_total += count_entries;
   } else {
@@ -130,13 +123,13 @@ static void db_init(soci::session& sql) throw (std::exception)
         "sw_v_major INTEGER, "
         "sw_v_minor INTEGER, "
         "sw_v_revision INTEGER);";
-    log::write(log::verbose, "    data table created\n");
+    log::write(log::level::verbose, "    data table created\n");
   }
 
   if(table_exists(sql, "adsb")) {
     int count_entries;
     sql << "SELECT Count(*) FROM adsb;", soci::into(count_entries);
-    log::write(log::verbose, "    found adsb data (%d entries)\n",
+    log::write(log::level::verbose, "    found adsb data (%d entries)\n",
         count_entries);
     count_entries_total += count_entries;
   } else {
@@ -144,16 +137,18 @@ static void db_init(soci::session& sql) throw (std::exception)
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
         "time REAL, "
         "location_alt REAL, location_lat REAL, location_lon REAL);";
-    log::write(log::verbose, "    adsb table created\n");
+    log::write(log::level::verbose, "    adsb table created\n");
   }
 
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, "  database initialised (%u entries) [%d%s]\n",
+  log::write(log::level::debug,
+      "  database initialised (%u entries) [%d%s]\n",
       count_entries_total, duration, duration_unit_string);
 }
 
+<<<<<<< HEAD
 /**
  * @brief Get file extension.
  */
@@ -165,13 +160,29 @@ std::string get_ext(std::string path) noexcept
 }
 
 /**
+||||||| merged common ancestors
+/*
+ * @brief Get file extension.
+ */
+std::string get_ext(std::string path) noexcept
+{
+   size_t period = path.find_last_of(".");
+   std::string ext = path.substr(period + 1);
+   return ext;
+}
+
+/*
+=======
+/*
+>>>>>>> Add command line options because of reasons
  * @brief Remove duplicate entries in the database tables.
  */
 static void remove_duplicates(soci::session& sql)
 {
-  log::write(log::debug, "  remove duplicate entries …");
+  log::write(log::level::debug, "  remove duplicate entries …");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
+<<<<<<< HEAD
 
   sql << "DELETE   FROM data "
          "WHERE    rowid NOT IN "
@@ -212,6 +223,41 @@ static void remove_duplicates(soci::session& sql)
     = std::chrono::duration_cast<duration_unit>(end-start).count();
   log::write(log::debug, " skipped [%d%s]\n", duration,
       duration_unit_string);
+||||||| merged common ancestors
+  soci::transaction tr(sql);
+  // TODO: Verify!
+  //sql << "DELETE FROM data WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
+  //  "data GROUP BY time);";
+  //sql << "DELETE FROM adsb WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
+  //  "data GROUP BY time);";
+  tr.commit();
+  end = std::chrono::system_clock::now();
+  unsigned long duration
+    = std::chrono::duration_cast<duration_unit>(end-start).count();
+  log::write(log::debug, " skipped [%d%s]\n", duration,
+      duration_unit_string);
+=======
+  if(Options::get_instance().remove_duplicates()) {
+    soci::transaction tr(sql);
+    // TODO: Verify!
+    //sql << "DELETE FROM data WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
+    //  "data GROUP BY time);";
+    //sql << "DELETE FROM adsb WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
+    //  "data GROUP BY time);";
+    tr.commit();
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " done [%d%s]\n", duration,
+        duration_unit_string);
+  } else {
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " skipped [%d%s]\n", duration,
+        duration_unit_string);
+  }
+>>>>>>> Add command line options because of reasons
 }
 
 /**
@@ -219,16 +265,24 @@ static void remove_duplicates(soci::session& sql)
  */
 static void check_database(soci::session& sql)
 {
-  log::write(log::debug, "  check database …");
+  log::write(log::level::debug, "  check database …");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
-  // TODO:
-  // • Check the uniqueness of entries
-  end = std::chrono::system_clock::now();
-  unsigned long duration
-    = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, " skipped [%d%s]\n", duration,
-      duration_unit_string);
+  if(Options::get_instance().db_checks()) {
+    // TODO:
+    // • Check the uniqueness of entries
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " done [%d%s]\n", duration,
+        duration_unit_string);
+  } else {
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " skipped [%d%s]\n", duration,
+        duration_unit_string);
+  }
 }
 
 /**
@@ -237,12 +291,9 @@ static void check_database(soci::session& sql)
 int main(int argc, char** argv)
 {
   int result = EXIT_SUCCESS;
-
-  if(argc < 2 ||
-  !(get_ext(argv[1]) != "json" || get_ext(argv[1]) != "js")) {
-    print_usage();
-  } else {
-    try {
+  try {
+    Options::get_instance().init(argc, argv);
+    if(Options::get_instance().process()) {
       greeting();
       soci::session sql(soci::sqlite3, DB_FILE);
       std::ofstream file_log(SQL_LOG_FILE);
@@ -251,21 +302,25 @@ int main(int argc, char** argv)
       db_init(sql);
 
       std::filebuf fb;
-      if(fb.open(argv[1], std::ios::in)) {
-        std::istream is(&fb);
-        Parser parser(is);
-        soci::transaction tr(sql);
-        sql << parser;
-        tr.commit();
-        fb.close();
+      std::string json_file;
+      if(Options::get_instance().json_files().size()) {
+        json_file = Options::get_instance().json_files()[0];
+        if(fb.open(json_file, std::ios::in)) {
+          std::istream is(&fb);
+          Parser parser(is);
+          soci::transaction tr(sql);
+          sql << parser;
+          tr.commit();
+          fb.close();
+        }
       }
       remove_duplicates(sql);
       check_database(sql);
       valediction();
-    } catch (const std::exception& exception) {
-      log::write(log::fatal, "\n[Error] %s\n\n", exception.what());
-      result = EXIT_FAILURE;
     }
+  } catch (const std::exception& exception) {
+    log::write(log::level::fatal, "\n[Error] %s\n\n", exception.what());
+    result = EXIT_FAILURE;
   }
 
   return result;

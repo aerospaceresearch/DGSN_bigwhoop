@@ -31,14 +31,15 @@ Parser::Parser(std::istream& input)
  */
 void Parser::parse(std::istream& input)
 {
-  log::write(log::debug, "  parsing JSON object …");
+  log::write(log::level::debug, "  parsing JSON object …");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
   input >> root_;
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, " done [%d%s]\n", duration, duration_unit_string);
+  log::write(log::level::debug, " done [%d%s]\n", duration,
+      duration_unit_string);
 }
 
 /**
@@ -46,7 +47,7 @@ void Parser::parse(std::istream& input)
  */
 void Parser::query(soci::session& sql) const
 {
-  log::write(log::debug, "  updating database …\n");
+  log::write(log::level::debug, "  updating database …\n");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
   {
@@ -54,7 +55,7 @@ void Parser::query(soci::session& sql) const
     constexpr const char* const scan_mode = "analyze_full_spectrum_basic";
     const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
     size_t count_datasets = datasets.size();
-    log::write(log::verbose, "    update %u datasets …",
+    log::write(log::level::verbose, "    update %u datasets …",
         count_datasets);
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
@@ -209,7 +210,7 @@ void Parser::query(soci::session& sql) const
     end = std::chrono::system_clock::now();
     unsigned long duration
       = std::chrono::duration_cast<duration_unit>(end-start).count();
-    log::write(log::verbose, " done [%d%s]\n", duration,
+    log::write(log::level::verbose, " done [%d%s]\n", duration,
         duration_unit_string);
   }
   {
@@ -217,7 +218,7 @@ void Parser::query(soci::session& sql) const
     constexpr const char* const scan_mode = "analyze_adsb";
     const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
     size_t count_datasets = datasets.size();
-    log::write(log::verbose, "    update %u adsb datasets …",
+    log::write(log::level::verbose, "    update %u adsb datasets …",
         count_datasets);
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
@@ -247,13 +248,13 @@ void Parser::query(soci::session& sql) const
     end = std::chrono::system_clock::now();
     unsigned long duration
       = std::chrono::duration_cast<duration_unit>(end-start).count();
-    log::write(log::verbose, " done [%d%s]\n", duration,
+    log::write(log::level::verbose, " done [%d%s]\n", duration,
         duration_unit_string);
   }
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, "  database updated [%d%s]\n", duration,
+  log::write(log::level::debug, "  database updated [%d%s]\n", duration,
       duration_unit_string);
 }
 
