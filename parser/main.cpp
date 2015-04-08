@@ -148,7 +148,6 @@ static void db_init(soci::session& sql) throw (std::exception)
       count_entries_total, duration, duration_unit_string);
 }
 
-<<<<<<< HEAD
 /**
  * @brief Get file extension.
  */
@@ -160,21 +159,6 @@ std::string get_ext(std::string path) noexcept
 }
 
 /**
-||||||| merged common ancestors
-/*
- * @brief Get file extension.
- */
-std::string get_ext(std::string path) noexcept
-{
-   size_t period = path.find_last_of(".");
-   std::string ext = path.substr(period + 1);
-   return ext;
-}
-
-/*
-=======
-/*
->>>>>>> Add command line options because of reasons
  * @brief Remove duplicate entries in the database tables.
  */
 static void remove_duplicates(soci::session& sql)
@@ -182,7 +166,6 @@ static void remove_duplicates(soci::session& sql)
   log::write(log::level::debug, "  remove duplicate entries …");
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
-<<<<<<< HEAD
 
   sql << "DELETE   FROM data "
          "WHERE    rowid NOT IN "
@@ -221,43 +204,8 @@ static void remove_duplicates(soci::session& sql)
   end = std::chrono::system_clock::now();
   unsigned long duration
     = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, " skipped [%d%s]\n", duration,
+  log::write(log::level::debug, " skipped [%d%s]\n", duration,
       duration_unit_string);
-||||||| merged common ancestors
-  soci::transaction tr(sql);
-  // TODO: Verify!
-  //sql << "DELETE FROM data WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
-  //  "data GROUP BY time);";
-  //sql << "DELETE FROM adsb WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
-  //  "data GROUP BY time);";
-  tr.commit();
-  end = std::chrono::system_clock::now();
-  unsigned long duration
-    = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::debug, " skipped [%d%s]\n", duration,
-      duration_unit_string);
-=======
-  if(Options::get_instance().remove_duplicates()) {
-    soci::transaction tr(sql);
-    // TODO: Verify!
-    //sql << "DELETE FROM data WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
-    //  "data GROUP BY time);";
-    //sql << "DELETE FROM adsb WHERE rowid NOT IN (SELECT MIN(rowid) FROM "
-    //  "data GROUP BY time);";
-    tr.commit();
-    end = std::chrono::system_clock::now();
-    unsigned long duration
-      = std::chrono::duration_cast<duration_unit>(end-start).count();
-    log::write(log::level::debug, " done [%d%s]\n", duration,
-        duration_unit_string);
-  } else {
-    end = std::chrono::system_clock::now();
-    unsigned long duration
-      = std::chrono::duration_cast<duration_unit>(end-start).count();
-    log::write(log::level::debug, " skipped [%d%s]\n", duration,
-        duration_unit_string);
-  }
->>>>>>> Add command line options because of reasons
 }
 
 /**
