@@ -12,11 +12,12 @@ def dict_factory(cursor, row):
     return d
 
 
-def print_db(file_in, file_out):
+def db2json(file_in, file_out):
     connection = sqlite3.connect(file_in)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
-    cursor.execute("select * from data")
+    cursor.execute("select id, time, "\
+            "location_lat, location_lon from data")
     results = cursor.fetchall()
     print results
     print ""
@@ -55,7 +56,7 @@ def process_args(argv):
 
 def main(argv):
     file_input, file_output = process_args(argv)
-    print_db(file_input, file_output)
+    db2json(file_input, file_output)
 
 
 if __name__ == "__main__":
