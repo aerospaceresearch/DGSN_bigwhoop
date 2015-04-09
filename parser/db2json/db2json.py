@@ -27,24 +27,18 @@ def db2json(file_in, file_out):
     connection.row_factory = dict_factory
     cursor = connection.cursor()
     if single_entry_per_node:
-        print "single entries"
         cursor.execute(
         """
         SELECT DISTINCT
-        client_id_hash, time, location_lat, location_lon
+        client_id_hash, time, location_lat, location_lon,
+        MAX(amp_mean) AS amp_mean, amp_max
         FROM data
-        WHERE time IN
-        (
-        SELECT DISTINCT max(time)
-        FROM    data
         GROUP BY
-                client_id_hash
-        );
+            client_id_hash;
         """)
     else:
-        print "multiple entries"
-        cursor.execute("select client_id_hash, time, "\
-                "location_lat, location_lon from data")
+        cursor.execute("SELECT client_id_hash, time, "\
+                "location_lat, location_lon FROM data")
     results = cursor.fetchall()
     print results
     print ""
