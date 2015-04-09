@@ -76,9 +76,9 @@ The data is stored in a sqlite3 database according to the following layout.
 
 ## References
 
+* boost: http://www.boost.org/
 * C++: https://isocpp.org/
 * JSON: http://json.org/
 * Python: https://www.python.org/
-* boost: http://www.boost.org/
 * sqlite3: https://www.sqlite.org/
 
