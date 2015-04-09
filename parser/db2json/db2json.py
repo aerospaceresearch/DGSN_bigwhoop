@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 import sys
 import getopt
 import sqlite3
@@ -8,6 +9,9 @@ import sqlite3
 single_entry_per_node = False;
 
 def dict_factory(cursor, row):
+    """
+    Row factory function.
+    """
     d = {}
     for idx, col in enumerate(cursor.description):
         d[col[0]] = row[idx]
@@ -15,6 +19,10 @@ def dict_factory(cursor, row):
 
 
 def db2json(file_in, file_out):
+    """
+    Main function for reading file_in and providing file_out with
+    according JSON output.
+    """
     connection = sqlite3.connect(file_in)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
@@ -44,6 +52,9 @@ def db2json(file_in, file_out):
 
 
 def print_usage():
+    """
+    Print usage in case of emergency.
+    """
     print sys.argv[0] + ' -i <inputfile.db> -o <outputfile.json>'
     print '  -v           print version'
     print '  -h           print help'
@@ -52,10 +63,16 @@ def print_usage():
 
 
 def print_version():
+    """
+    Print version information.
+    """
     print 'db2json v1.0 - sqlite3 database to json converter'
 
 
 def process_args(argv):
+    """
+    Process command line options.
+    """
     file_input = ''
     file_output = 'database.json'
     try:
@@ -86,6 +103,9 @@ def process_args(argv):
 
 
 def main(argv):
+    """
+    Main function.
+    """
     file_input, file_output = process_args(argv)
     db2json(file_input, file_output)
 
