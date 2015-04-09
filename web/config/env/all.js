@@ -14,7 +14,7 @@ module.exports = {
 		lib: {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/flatui-pro/flat-ui-pro.css',
 			],
 			js: [
 				'public/lib/angular/angular.js',
