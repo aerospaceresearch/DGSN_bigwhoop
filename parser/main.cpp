@@ -242,6 +242,12 @@ static void info(soci::session& sql)
 {
   if(table_exists(sql, "db_version")) {
     check_db_version(sql);
+    unsigned int count_data = 0;
+    unsigned int count_adsb = 0;
+    sql << "SELECT Count(*) FROM data;", soci::into(count_data);
+    sql << "SELECT Count(*) FROM adsb;", soci::into(count_adsb);
+    log::write(log::level::info, "  data entries: %u\n", count_data);
+    log::write(log::level::info, "  adsb entries: %u\n", count_adsb);
   } else {
     throw std::runtime_error("No version information in database");;
   }
