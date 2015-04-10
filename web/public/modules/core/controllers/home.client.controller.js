@@ -1,11 +1,11 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope','$http', 'Authentication',
-    function($scope, $http, Authentication) {
+angular.module('core').controller('HomeController', ['$scope','$http', '$location', 'Authentication',
+    function($scope, $http, $location, Authentication) {
         // This provides Authentication context.
         $scope.authentication = Authentication;
-
+		if (!$scope.authentication.user) $location.path('/');
         // map center
         var myLatlng = new google.maps.LatLng(52.4935, 7.629);
         // map options,
