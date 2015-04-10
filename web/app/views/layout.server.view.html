@@ -56,7 +56,8 @@
 	<script type="text/javascript">
 		var user = {{ user | json | safe }};
 	</script>
-
+	<footer data-ng-include="'/modules/core/views/footer.client.view.html'">
+	</footer>
 	<!--Application JavaScript Files-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
 	{% endfor %} 
