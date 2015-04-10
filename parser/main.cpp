@@ -271,7 +271,7 @@ int main(int argc, char** argv)
 
       if(Options::get_instance().info()) {
         if(Options::get_instance().json_files().size()) {
-          json_file = Options::get_instance().json_files()[0];
+          json_file = Options::get_instance().json_files().at(0);
           if(fb.open(json_file, std::ios::in)) {
             std::istream is(&fb);
             info(sql, Parser(is));
@@ -286,7 +286,7 @@ int main(int argc, char** argv)
         db_init(sql);
 
         if(Options::get_instance().json_files().size()) {
-          json_file = Options::get_instance().json_files()[0];
+          json_file = Options::get_instance().json_files().at(0);
           if(fb.open(json_file, std::ios::in)) {
             std::istream is(&fb);
             Parser parser(is);

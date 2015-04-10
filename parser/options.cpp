@@ -54,16 +54,19 @@ bool Options::process()
   if(vm_.count("input-file")) {
     json_files_ = vm_["input-file"].as<std::vector<std::string>>();
     for(std::vector<std::string>::iterator it = json_files_.begin();
-        it != json_files_.end(); ++it) {
+        it < json_files_.end(); ++it) {
       if(get_ext(*it) != "json") {
-        json_files_.erase(it);
+        log::write(log::level::info, "  [Note] '%s' ignored\n",
+            (*it).c_str());
+        it = json_files_.erase(it);
       }
     }
-    if(json_files_.size() < 1) {
-      log::write(log::level::info, "Usage: ./parser <file.json>\n");
-      return false;
-    }
   }
+  if(json_files_.size() < 1) {
+    log::write(log::level::info, "Usage: ./parser <file.json>\n");
+    return false;
+  }
+
   if(vm_.count("no-db-checks")) {
     db_checks_ = false;
   }
