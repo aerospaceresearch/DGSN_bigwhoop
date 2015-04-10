@@ -23,6 +23,11 @@ constexpr const char* const DB_FILE = "database.db";
 constexpr const char* const SQL_LOG_FILE = "";
 
 /**
+ * @brief Maximal length of strings to put into the database.
+ */
+constexpr const unsigned int MAX_STR_LENGTH = 1024u;
+
+/**
  * @brief Log level for output.
  *
  * Possible values: log::all

@@ -4,7 +4,7 @@ OBJ = ${SRC:.cpp=.o}
 
 INCS = -I/usr/local/include/soci
 LIBS = -ljsoncpp -lsoci_core -lsoci_sqlite3 -Wl,-rpath=/usr/local/lib64/\
-			 -lboost_program_options
+			 -lboost_program_options -lboost_regex
 CFLAGS = -std=c99 -Os
 CPPFLAGS = -std=c++11 -Os ${INCS} -g -Wunused
 LDFLAGS = ${LIBS}

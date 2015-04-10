@@ -1,9 +1,11 @@
 #include <soci.h>
 #include <sqlite3/soci-sqlite3.h>
 
+#include <boost/regex.hpp>
 #include <chrono>
 #include <exception>
 #include <string>
+#include <cstring>
 
 #include "log.hpp"
 #include "main.hpp"
@@ -51,10 +53,13 @@ void Parser::query(soci::session& sql) const
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
   {
-    // TODO: Insert entries only once
     constexpr const char* const scan_mode = "analyze_full_spectrum_basic";
     const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
     size_t count_datasets = datasets.size();
+
+    static_assert(std::strlen(scan_mode) <= MAX_STR_LENGTH,
+        "Scan mode description is too long");
+
     log::write(log::level::verbose, "    update %u datasets …",
         count_datasets);
     std::chrono::time_point<std::chrono::system_clock> start, end;
@@ -87,33 +92,43 @@ void Parser::query(soci::session& sql) const
     const unsigned int sw_version
       = metadata["sw"].get("version", 0u).asUInt();
 
-    // TODO: Sanity checks:
-    //       • max. length for strings
-    //       • url is an URL
-    //       • max. length for strings
-    //       • version <= current version
+    if(sw_version > VERSION_MAJOR) {
+      throw std::runtime_error("Version mismatch");
+    }
+
+    if(url.length()) {
+      if(url.length() > MAX_STR_LENGTH) {
+        throw std::runtime_error("URL is too long");
+      }
+
+      boost::regex rgx_url(R"((www\.|(news|(ht|f)tp(s?))\://){1}\S+)");
+      boost::regex rgx_email(R"([\w-]+@([\w-]+\.)+[\w-]+)");
+      if (!boost::regex_match(url, rgx_url)) {
+        if (!boost::regex_match(url, rgx_email)) {
+          throw std::runtime_error("URL is not formatted correctly");
+        }
+      }
+    }
+
     if(client_id_hash.length() != 56u) {
       throw std::runtime_error("Id hash has wrong size");
     }
-    if(client_name.length() > 2048u) {
+    if(client_name.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Client name is too long");
     }
-    if(sensor_name.length() > 2048u) {
+    if(sensor_name.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Sensor name is too long");
     }
-    if(sensor_antenna.length() > 2048u) {
+    if(sensor_antenna.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Sensor antenna description is too long");
     }
-    if(url.length() > 2048u) {
-      throw std::runtime_error("URL is too long");
-    }
-    if(wu_id.length() > 2048u) {
+    if(wu_id.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Workunit ID is too long");
     }
-    if(sw_bit.length() > 2048u) {
+    if(sw_bit.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Bit description is too long");
     }
-    if(sw_os.length() > 2048u) {
+    if(sw_os.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Operating System description is too long");
     }
 
