@@ -1,0 +1,2 @@
+UPLOAD_FOLDER = '.'
+ALLOWED_EXTENSIONS = set(['zip'])
