@@ -273,3 +273,10 @@ void Parser::query(soci::session& sql) const
       duration_unit_string);
 }
 
+void Parser::info() const
+{
+  if(!root_.empty()) {
+  } else {
+    log::write(log::level::info, "");
+  }
+}

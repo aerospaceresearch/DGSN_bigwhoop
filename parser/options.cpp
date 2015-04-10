@@ -26,7 +26,7 @@ void Options::init(int argc, const char * const * const argv)
     ("version", "print version")
     ("no-db-checks,c", "skip database checks")
     ("no-remove-duplicates,d", "do not remove duplicate entries")
-    ("info-only,i", "print information about JSON file and current database")
+    ("info,i", "print information about JSON file and current database")
     ("quiet,q", "quiet output")
     ("verbose,v", "verbose output")
     ("input-file", bpo::value<std::vector<std::string>>(),
@@ -76,10 +76,14 @@ bool Options::process()
   if(vm_.count("verbose")) {
     loglevel_ = log::level::verbose;
   }
-  if(vm_.count("info-only")) {
-    info_only_ = true;
-    log::write(log::level::info,
-        "[Note] --info-only currently unsupported\n");
+  if(vm_.count("info")) {
+    info_ = true;
+    if(static_cast<unsigned int>(loglevel_) >=
+       static_cast<unsigned int>(log::level::error)) {
+      std::cout << "[Note] --quiet and --info provided at the same time"
+        << std::endl;
+      return false;
+    }
   }
   return true;
 }

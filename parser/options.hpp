@@ -23,7 +23,7 @@ class Options
 
     bool db_checks() const { return db_checks_; }
     bool remove_duplicates() const { return remove_duplicates_; }
-    bool info_only() const { return info_only_; }
+    bool info() const { return info_; }
     log::level loglevel() const { return loglevel_; }
     const std::vector<std::string>& json_files() const
       { return json_files_; }
@@ -43,7 +43,7 @@ class Options
     log::level loglevel_ = LOG_LEVEL;
     bool db_checks_ = true;
     bool remove_duplicates_ = true;
-    bool info_only_ = false;
+    bool info_ = false;
     std::vector<std::string> json_files_;
 };
 

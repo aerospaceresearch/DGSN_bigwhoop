@@ -52,6 +52,27 @@ static bool table_exists(soci::session& sql, const std::string& table)
   return table_found;
 }
 
+static void check_db_version(soci::session& sql)
+{
+  int count_entries;
+  int v_major, v_minor;
+  sql << "SELECT Count(*) FROM db_version;", soci::into(count_entries);
+  if(count_entries != 1) {
+    log::write(log::level::error,
+        "    [Error] Database is ill-formed! (%d version entries)\n",
+        count_entries);
+  }
+  sql << "SELECT v_major FROM db_version", soci::into(v_major);
+  sql << "SELECT v_minor FROM db_version", soci::into(v_minor);
+  log::write(log::level::verbose, "    found database: v%d.%d\n",
+      v_major, v_minor);
+  if(VERSION_MAJOR != v_major ||
+      VERSION_MINOR != v_minor) {
+    log::write(log::level::warning,
+        "    [Warning] Version mismatch between parser and database\n");
+  }
+}
+
 /**
  * @brief Check and setup the database.
  *
@@ -66,23 +87,7 @@ static void db_init(soci::session& sql) throw (std::exception)
   start = std::chrono::system_clock::now();
 
   if(table_exists(sql, "db_version")) {
-    int count_entries;
-    int v_major, v_minor;
-    sql << "SELECT Count(*) FROM db_version;", soci::into(count_entries);
-    if(count_entries != 1) {
-      log::write(log::level::error,
-          "    [Error] Database is ill-formed! (%d version entries)\n",
-          count_entries);
-    }
-    sql << "SELECT v_major FROM db_version", soci::into(v_major);
-    sql << "SELECT v_minor FROM db_version", soci::into(v_minor);
-    log::write(log::level::verbose, "    found database: v%d.%d\n",
-      v_major, v_minor);
-    if(VERSION_MAJOR != v_major ||
-       VERSION_MINOR != v_minor) {
-      log::write(log::level::warning,
-          "    [Warning] Version mismatch between parser and database\n");
-    }
+    check_db_version(sql);
   } else {
     sql << "CREATE TABLE IF NOT EXISTS db_version("
       "v_major INTEGER UNIQUE, "
@@ -233,6 +238,22 @@ static void check_database(soci::session& sql)
   }
 }
 
+static void info(soci::session& sql)
+{
+  if(table_exists(sql, "db_version")) {
+    check_db_version(sql);
+  } else {
+    throw std::runtime_error("No version information in database");;
+  }
+}
+
+static void info(soci::session& sql, const Parser& parser)
+{
+
+
+  info(sql);
+}
+
 /**
  * @brief Main function
  */
@@ -242,29 +263,43 @@ int main(int argc, char** argv)
   try {
     Options::get_instance().init(argc, argv);
     if(Options::get_instance().process()) {
-      greeting();
       soci::session sql(soci::sqlite3, DB_FILE);
       std::ofstream file_log(SQL_LOG_FILE);
       sql.set_log_stream(&file_log);
-
-      db_init(sql);
-
       std::filebuf fb;
       std::string json_file;
-      if(Options::get_instance().json_files().size()) {
-        json_file = Options::get_instance().json_files()[0];
-        if(fb.open(json_file, std::ios::in)) {
-          std::istream is(&fb);
-          Parser parser(is);
-          soci::transaction tr(sql);
-          sql << parser;
-          tr.commit();
-          fb.close();
+
+      if(Options::get_instance().info()) {
+        if(Options::get_instance().json_files().size()) {
+          json_file = Options::get_instance().json_files()[0];
+          if(fb.open(json_file, std::ios::in)) {
+            std::istream is(&fb);
+            info(sql, Parser(is));
+            fb.close();
+          }
+        } else {
+          info(sql);
+        }
+      } else {
+        greeting();
+
+        db_init(sql);
+
+        if(Options::get_instance().json_files().size()) {
+          json_file = Options::get_instance().json_files()[0];
+          if(fb.open(json_file, std::ios::in)) {
+            std::istream is(&fb);
+            Parser parser(is);
+            soci::transaction tr(sql);
+            sql << parser;
+            tr.commit();
+            fb.close();
+          }
+          remove_duplicates(sql);
+          check_database(sql);
+          valediction();
         }
       }
-      remove_duplicates(sql);
-      check_database(sql);
-      valediction();
     }
   } catch (const std::exception& exception) {
     log::write(log::level::fatal, "\n[Error] %s\n\n", exception.what());

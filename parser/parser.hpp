@@ -15,6 +15,7 @@ class Parser
   public:
     Parser(std::istream& input);
     void query(soci::session& sql) const;
+    void info() const;
 
   private:
     void parse(std::istream& input);
