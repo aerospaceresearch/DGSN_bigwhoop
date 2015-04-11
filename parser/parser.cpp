@@ -142,8 +142,8 @@ void Parser::query(soci::session& sql) const
         = datasets[data_index].get("lon", 0.0f).asFloat();
       const unsigned int freq
         = datasets[data_index].get("frequency", 0u).asUInt();
-      const float time
-        = datasets[data_index].get("timestamp", 0.0f).asFloat();
+      const double time
+        = datasets[data_index].get("timestamp", 0.0f).asDouble();
       const double amp_max
         = datasets[data_index].get("max_amplitude", 0.0).asDouble();
       const double amp_mean
@@ -155,7 +155,7 @@ void Parser::query(soci::session& sql) const
         throw std::runtime_error("Timestamp is negative");
       }
       // TODO: Update reference timestamp at first release
-      if(time < 1428173824.0f) {
+      if(time < 1428173820.0) {
         std::cout << std::endl << std::fixed << time << std::endl;
         throw std::runtime_error("Timestamp is too old");
       }
@@ -245,8 +245,8 @@ void Parser::query(soci::session& sql) const
         = datasets[data_index].get("lat", 0.0f).asFloat();
       const float location_lon
         = datasets[data_index].get("lon", 0.0f).asFloat();
-      const float time
-        = datasets[data_index].get("timestamp", 0.0f).asFloat();
+      const double time
+        = datasets[data_index].get("timestamp", 0.0f).asDouble();
 
       // TODO: Sanity checks:
       //       • amp_mean <= amp_max
