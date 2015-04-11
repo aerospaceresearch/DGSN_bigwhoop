@@ -172,45 +172,54 @@ static void remove_duplicates(soci::session& sql)
   std::chrono::time_point<std::chrono::system_clock> start, end;
   start = std::chrono::system_clock::now();
 
-  sql << "DELETE   FROM data "
-         "WHERE    rowid NOT IN "
-         "( "
-         "SELECT MIN(rowid) "
-         "FROM    data "
-         "GROUP BY "
-         "        time"
-         ",       freq"
-         ",       amp_max"
-         ",       amp_mean"
-         ",       scan_mode"
-         ",       location_alt"
-         ",       location_lat"
-         ",       location_lon"
-         ",       client_id_hash"
-         ",       sensor_id"
-         ",       sensor_name"
-         ",       sensor_antenna"
-         ",       sensor_ppm"
-         ",       wu_id"
-         ");";
+  if(Options::get_instance().remove_duplicates()) {
 
-  sql << "DELETE   FROM adsb "
-         "WHERE    rowid NOT IN "
-         "( "
-         "SELECT MIN(rowid) "
-         "FROM    adsb "
-         "GROUP BY "
-         "        time"
-         ",       location_alt"
-         ",       location_lat"
-         ",       location_lon"
-         ");";
+    sql << "DELETE   FROM data "
+      "WHERE    rowid NOT IN "
+      "( "
+      "SELECT MIN(rowid) "
+      "FROM    data "
+      "GROUP BY "
+      "        time"
+      ",       freq"
+      ",       amp_max"
+      ",       amp_mean"
+      ",       scan_mode"
+      ",       location_alt"
+      ",       location_lat"
+      ",       location_lon"
+      ",       client_id_hash"
+      ",       sensor_id"
+      ",       sensor_name"
+      ",       sensor_antenna"
+      ",       sensor_ppm"
+      ",       wu_id"
+      ");";
 
-  end = std::chrono::system_clock::now();
-  unsigned long duration
-    = std::chrono::duration_cast<duration_unit>(end-start).count();
-  log::write(log::level::debug, " skipped [%d%s]\n", duration,
-      duration_unit_string);
+    sql << "DELETE   FROM adsb "
+      "WHERE    rowid NOT IN "
+      "( "
+      "SELECT MIN(rowid) "
+      "FROM    adsb "
+      "GROUP BY "
+      "        time"
+      ",       location_alt"
+      ",       location_lat"
+      ",       location_lon"
+      ");";
+
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " done [%d%s]\n", duration,
+        duration_unit_string);
+  } else {
+    end = std::chrono::system_clock::now();
+    unsigned long duration
+      = std::chrono::duration_cast<duration_unit>(end-start).count();
+    log::write(log::level::debug, " skipped [%d%s]\n", duration,
+        duration_unit_string);
+  }
 }
 
 /**
