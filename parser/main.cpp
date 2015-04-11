@@ -244,10 +244,11 @@ static void info(soci::session& sql)
     check_db_version(sql);
     unsigned int count_data = 0;
     unsigned int count_adsb = 0;
+    log::write(log::level::info, "====== database ======\n");
     sql << "SELECT Count(*) FROM data;", soci::into(count_data);
     sql << "SELECT Count(*) FROM adsb;", soci::into(count_adsb);
-    log::write(log::level::info, "  data entries: %u\n", count_data);
-    log::write(log::level::info, "  adsb entries: %u\n", count_adsb);
+    log::write(log::level::info, "  data entries:\t\t%u\n", count_data);
+    log::write(log::level::info, "  ADSB entries:\t\t%u\n", count_adsb);
   } else {
     throw std::runtime_error("No version information in database");;
   }
@@ -255,8 +256,7 @@ static void info(soci::session& sql)
 
 static void info(soci::session& sql, const Parser& parser)
 {
-
-
+  parser.info();
   info(sql);
 }
 

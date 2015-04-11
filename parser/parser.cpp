@@ -275,8 +275,24 @@ void Parser::query(soci::session& sql) const
 
 void Parser::info() const
 {
+  log::write(log::level::info, "===== input data =====\n");
   if(!root_.empty()) {
+    {
+      constexpr const char* const scan_mode
+        = "analyze_full_spectrum_basic";
+      const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
+      size_t count_datasets = datasets.size();
+      log::write(log::level::info, "  basic datasets:\t%u\n",
+          count_datasets);
+    }
+    {
+      constexpr const char* const scan_mode = "analyze_adsb";
+      const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
+      size_t count_datasets = datasets.size();
+      log::write(log::level::info, "  ADSB datasets:\t%u\n",
+          count_datasets);
+    }
   } else {
-    log::write(log::level::info, "");
+    log::write(log::level::info, "(empty)");
   }
 }
