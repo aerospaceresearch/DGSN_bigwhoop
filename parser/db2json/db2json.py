@@ -7,6 +7,7 @@ import sqlite3
 
 
 single_entry_per_node = False;
+selected_frequency = 73008000;
 
 def dict_factory(cursor, row):
     """
@@ -30,12 +31,13 @@ def db2json(file_in, file_out):
         cursor.execute(
         """
         SELECT DISTINCT
-        client_id_hash, time, location_lat, location_lon,
-        MAX(amp_mean) AS amp_mean, amp_max
+        client_id_hash, MAX(time) AS time, location_lat, location_lon,
+        amp_mean, amp_max
         FROM data
+        WHERE freq = %s
         GROUP BY
             client_id_hash;
-        """)
+        """ % selected_frequency)
     else:
         cursor.execute("SELECT client_id_hash, time, "\
                 "location_lat, location_lon FROM data")
