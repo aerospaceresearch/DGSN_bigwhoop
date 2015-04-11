@@ -2,13 +2,14 @@
 <groundstation>	
 	<!-- Please provide a "rough" location (Mandatory Baseline) -->
 	<!-- Find your location on http://maps.google.com -->
+	<!-- Locations with capital E,W or N,S, no small letters, or as + and - numbers with + for eastwards or northwards -->
 	<gs_location_long>123.456E</gs_location_long>
 	<gs_location_lat>12.34N</gs_location_lat>
 	<gs_location_alt_meter>432.1</gs_location_alt_meter>
 	
 	<!-- Tell us a bit about your ground station (Optional) -->
-	<gs_name>n0d3 z3r0</gs_name>
-	<gs_info>Hello World. Space Rocks!</gs_info>
+	<gs_name>Fill In Your Node Name</gs_name>
+	<gs_info>Hello World. Any Info. Space Rocks!</gs_info>
 	<gs_info_url>www.AerospaceResearch.net</gs_info_url>
 	
 	<!-- For each sensor, add one block (Optional) -->
