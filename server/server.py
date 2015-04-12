@@ -4,6 +4,7 @@ from flask import Flask
 import config
 import os
 import sqlite3
+import json
 
 app = Flask(__name__)
 app.config['DB_FILE'] = config.DB_FILE
@@ -46,8 +47,9 @@ def reply_data(freq):
     GROUP BY
         client_id_hash;
     """ % freq)
-    results = cursor.fetchall()
+    ret = json.dumps(cursor.fetchall())
     connection.close()
+    return ret
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=5001, debug=True)
