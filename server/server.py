@@ -9,6 +9,7 @@ import json
 import json
 from functools import wraps
 from flask import redirect, request, current_app
+from flask.ext.jsonpify import jsonify
 
 
 app = Flask(__name__)
@@ -52,7 +53,6 @@ def dict_factory(cursor, row):
     return d
 
 @app.route('/data/<int:freq>', methods=['GET'])
-@support_jsonp
 def reply_data(freq):
     connection = sqlite3.connect(config.DB_FILE)
     connection.row_factory = dict_factory

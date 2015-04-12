@@ -46,18 +46,34 @@
       }
 
       function updateData(frequency){
-        var da = [];
-        for (i = 0; i < 5; i++) {
-          da.push({
-            lat:48.77+getRandomArbitrary(0,i),
-            lng: 9.23+getRandomArbitrary(0,i),
-            count: i
+        // var da = [];
+        // for (i = 0; i < 5; i++) {
+        //   da.push({
+        //     lat:48.77+getRandomArbitrary(0,i),
+        //     lng: 9.23+getRandomArbitrary(0,i),
+        //     mean: i
+        //   });
+        // }
+        //console.log(frequency*1000000);
+          $.ajax({
+          url: "http://localhost:5001/data/"+frequency*1000000,
+       
+          // The name of the callback parameter, as specified by the YQL service
+          jsonp: "callback",
+       
+          // Tell jQuery we're expecting JSONP
+          dataType: "jsonp",
+       
+          // Work with the response
+          success: function( response ) {
+              dd = {data: response, max: 1};
+              heatmapLayer.setData(dd);
+            }
           });
-        }
 
-        dd = {data: da, max:i};
-        console.log(dd);  
-        return dd;
+        // dd = {data: da, max:i};
+        // console.log(dd);  
+        // return dd;
       }
 
         window.onload = function() {
@@ -71,7 +87,7 @@
 
           var cfg = {
             // radius should be small ONLY if scaleRadius is true (or small radius is intended)
-            "radius": 2,
+            "radius": 1,
             "maxOpacity": .8, 
             // scales the radius based on map zoom
             "scaleRadius": true, 
@@ -84,7 +100,7 @@
             // which field name in your data represents the longitude - default "lng"
             lngField: 'lng',
             // which field name in your data represents the data value - default "value"
-            valueField: 'count'
+            valueField: 'mean'
           };
 
 
@@ -96,20 +112,21 @@
             layers: [baseLayer, heatmapLayer]
           });
 
-          heatmapLayer.setData(updateData("108"));
+          heatmapLayer.setData(updateData("107.824"));
 
         };
 
         $(document).ready(function () {
           $("#bigwhoopslider").ionRangeSlider({
             min: 30,
-            max: 1700,
-            from: 108,
-            step: 2,
+            max: 1699.120,
+            from: 107.824,
+            step: 2.048,
             prettify: function (num) {
               return num+" MHz";
-            },onChange: function (data) {
-              heatmapLayer.setData(updateData(data));
+            },onChange: function (num) {
+              //console.log(num);
+              updateData(num.from);
             },
           });
 
