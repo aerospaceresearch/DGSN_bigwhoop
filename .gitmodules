@@ -1,0 +1,3 @@
+[submodule "libdump1090"]
+	path = libdump1090
+	url = https://github.com/muzy/libdump1090.git
