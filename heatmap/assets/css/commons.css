@@ -1,0 +1,101 @@
+html, body, p, div { margin:0; padding:0; }
+
+body {
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+@media(min-width:840px) {
+  .primary {
+    font-size: 4.7em;
+  }
+}
+
+.wrapper { width:840px; position:relative; margin:auto; max-width:90%; }
+
+.breadcrumb-trail {
+  list-style:none;
+  list-style-type:none;
+  display:block;
+  font-size:10pt;
+  margin-top:0;
+  margin-bottom:0;
+  padding-left:0;
+}
+.breadcrumb-trail li {
+  display:inline-block;
+  padding:5px;
+  margin-right:15px;
+  position:relative;
+  line-height:normal;
+}
+.breadcrumb-trail a {
+  text-decoration:none;
+  color:blue;
+  font-weight:400;
+  padding-bottom:1px;
+  
+}
+.breadcrumb-trail a:hover {
+  border-bottom:1px solid blue;
+}
+.breadcrumb-trail li:before{
+  content:'\0BB';
+  position:absolute;
+  left:-14px;
+  top:0px;
+  font-weight:normal;
+  font-size:14pt;
+}
+.breadcrumb-trail li:first-child:before {
+  content:'';
+  margin-left:0;
+}
+
+@font-face {
+    font-family: 'Mono Social Icons Font';
+    src: url('../fonts/MonoSocialIconsFont-1.10.eot');
+    src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
+         url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+         url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+    src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.symbol, a.symbol:before {
+    font-family: 'Mono Social Icons Font';
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+a.symbol { font-size:50px; line-height:40px; text-decoration:none; color:#333; display: inline-block;  display:block; -webkit-transition:.2s ease all; transition:.2s ease all; }
+.s-tw:hover { color:#4099FF; }
+.s-fb:hover { color:#3B5998; }
+.s-gh:hover { color:black; }
+a.symbol:hover { background:rgba(255,255,255,.6); }
+.sharer { 
+  position:fixed;
+  left:0;
+  top:100px;
+  padding-top:10px;
+  padding-bottom:10px;
+  background:rgba(0,0,0,.05);
+  -webkit-transition:.3s ease all;
+  transition:.3s ease all;
+  -webkit-transform:translateX(-40px) translateZ(0);
+  transform:translateX(-40px) translateZ(0);
+}
+.sharer.show {
+  -webkit-transform:translateX(0) translateZ(0);
+  transform:translateX(0) translateZ(0);
+}
+
