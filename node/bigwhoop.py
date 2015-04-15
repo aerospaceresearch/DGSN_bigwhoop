@@ -24,14 +24,18 @@ import re
 import smtplib
 import zipfile
 
+import platform
+
 '''
 BigWhoop...
 will measure everything what is happening in the radio-frequency spectrum,
 globally, continously, with your help!
 '''
 
+sw_version_counter = 1
+
 '''
-Glabal variables
+Global variables
 '''
 email_send = False
 email_server = ""
@@ -49,7 +53,8 @@ def start_sdr(scan_frequency, scan_n_samples, sdr):
     sdr.center_freq = scan_frequency     # Hz
     # sdr.freq_correction = 60   # PPM
     # sdr.gain = 'auto'
-    sdr.gain = 28
+    # sdr.gain = 28
+    sdr.gain = task_hw_setting_gain[0]
     result = sdr.read_samples(scan_n_samples)
     return result
 
@@ -72,7 +77,7 @@ def analyze_full_spectrum_basic(device_number, geo, loopcounter, loopstogo):
     sdr.sample_rate = scan_samplerate
     # sdr.freq_correction = 60   # PPM
     # sdr.gain = 'auto'
-    sdr.gain = 20
+    # sdr.gain = 20
 
     result_timestamp = []
     result_geo_lon = []
@@ -140,8 +145,9 @@ The only mandatory information is here to put in his geo location (long, lat, al
 def load_groundstation_config():
     doc = minidom.parse("set_your_groundstation_config.xml")
 
-    global gs_meta, gs_location
+    global gs_meta, gs_sensor, gs_location
     gs_meta = []
+    gs_sensor = []
     gs_location = []
 
     # doc.getElementsByTagName returns NodeList
@@ -155,12 +161,14 @@ def load_groundstation_config():
 
     sensors = doc.getElementsByTagName("sensor")
     for sensor in sensors:
-        sid = sensor.getAttribute("id")
-        sen_name = sensor.getElementsByTagName("sen_name")[0]
-        sen_usbport = sensor.getElementsByTagName("sen_usbport")[0]
-        #print("id:%s, Sensor Name:%s, Sensor USB Port:%s" %
-        #      (sid, sen_name.firstChild.data, sen_usbport.firstChild.data))
-
+        gs_sensor.append(sensor.getAttribute("id"))
+        gs_sensor.append(sensor.getElementsByTagName("sen_name")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_usbport")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_hw_ppm")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_hw_modified")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_hw_conversiondown")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_hw_conversionup")[0].firstChild.data)
+        gs_sensor.append(sensor.getElementsByTagName("sen_antenna")[0].firstChild.data)
 
 '''
 loading in the BOINC ready work unit data chunk.
@@ -294,8 +302,13 @@ def create_out_structure():
     meta['client']['sensor'] = {}
     meta['client']['sensor']['id'] = 0
     meta['client']['sensor']['name'] = 'generic sdr device'
-    meta['client']['sensor']['antenna'] = 'custom,dipol,75cm'
+    meta['client']['sensor']['devicename'] = 'generic sdr device entered by user'
+    meta['client']['sensor']['usbport'] = 'generic sdr device'
     meta['client']['sensor']['ppm'] = 0
+    meta['client']['sensor']['modified'] = 0
+    meta['client']['sensor']['conversiondown'] = 0
+    meta['client']['sensor']['conversionup'] = 0
+    meta['client']['sensor']['antenna'] = 'custom,dipol,75cm'
 
     meta['sw'] = {}
     meta['sw']['version'] = 0
@@ -541,12 +554,27 @@ def main():
             # plt.plot(result[-1][1],result[-1][2])
             # plt.plot(result[-1][1],result[-1][3])
             print "time to go",time_counter, " result", result
-        #plt.ylabel('some numbers')
+        # plt.ylabel('some numbers')
         # plt.show()
 
 
         #wrapping and cleaning up
         container['meta']['client']['id'] = get_node_id()
+        container['meta']['client']['name'] = gs_meta[0]
+        container['meta']['client']['url'] = gs_meta[1]
+        container['meta']['client']['sensor']['id'] = gs_sensor[0]
+        container['meta']['client']['sensor']['name'] = gs_sensor[1]
+        container['meta']['client']['sensor']['devicename'] = librtlsdr.rtlsdr_get_device_name(device_number)
+        container['meta']['client']['sensor']['usbport'] = gs_sensor[2]
+        container['meta']['client']['sensor']['ppm'] = gs_sensor[3]
+        container['meta']['client']['sensor']['modified'] = gs_sensor[4]
+        container['meta']['client']['sensor']['conversiondown'] = gs_sensor[5]
+        container['meta']['client']['sensor']['conversionup'] = gs_sensor[6]
+        container['meta']['client']['sensor']['antenna'] = gs_sensor[7]
+
+        container['meta']['sw']['version'] = sw_version_counter
+        container['meta']['sw']['os'] = platform.platform()
+
         container['data']['workunitid'] = wuid
         container['data']['dataset'] = {}
         container['data']['dataset']['analyze_full_spectrum_basic'] = creating_json_data(result)

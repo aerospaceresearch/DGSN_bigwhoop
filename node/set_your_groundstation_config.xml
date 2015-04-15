@@ -18,8 +18,8 @@
 		<sen_usbport>1</sen_usbport>
 		<sen_hw_ppm>100</sen_hw_ppm>
 		<sen_hw_modified>1</sen_hw_modified>
-		<sen_hw_convertiondown>0</sen_hw_convertiondown>
-		<sen_hw_convertionup>0</sen_hw_convertionup>
+		<sen_hw_conversiondown>0</sen_hw_conversiondown>
+		<sen_hw_conversionup>0</sen_hw_conversionup>
 		<sen_antenna>standard</sen_antenna>
 	</sensor>
 </groundstation>
