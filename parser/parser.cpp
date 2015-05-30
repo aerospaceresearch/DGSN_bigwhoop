@@ -108,7 +108,9 @@ void Parser::query(soci::session& sql) const
       = metadata["sw"].get("version", 0u).asUInt();
 
     if(sw_version > VERSION_MAJOR) {
-      throw std::runtime_error("Version mismatch");
+      std::stringstream error("Version mismatch: ");
+      error << sw_version << " > " << VERSION_MAJOR;
+      throw std::runtime_error(error.str());
     }
 
     if(url.length()) {

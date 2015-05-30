@@ -8,7 +8,7 @@
 /**
  * @brief Version
  */
-constexpr const unsigned int VERSION_MAJOR    = 0;
+constexpr const unsigned int VERSION_MAJOR    = 1;
 constexpr const unsigned int VERSION_MINOR    = 0;
 constexpr const unsigned int VERSION_REVISION = 0;
 
