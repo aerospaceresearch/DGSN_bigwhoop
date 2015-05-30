@@ -561,12 +561,13 @@ def main():
         #wrapping and cleaning up
         container['meta']['client']['id'] = get_node_id()
         container['meta']['client']['name'] = gs_meta[0]
-        container['meta']['client']['url'] = gs_meta[1]
-        container['meta']['client']['sensor']['id'] = gs_sensor[0]
+        container['meta']['client']['info'] = gs_meta[1]
+        container['meta']['client']['url'] = gs_meta[2]
+        container['meta']['client']['sensor']['id'] = int(gs_sensor[0])
         container['meta']['client']['sensor']['name'] = gs_sensor[1]
         container['meta']['client']['sensor']['devicename'] = librtlsdr.rtlsdr_get_device_name(device_number)
         container['meta']['client']['sensor']['usbport'] = gs_sensor[2]
-        container['meta']['client']['sensor']['ppm'] = gs_sensor[3]
+        container['meta']['client']['sensor']['ppm'] = int(gs_sensor[3])
         container['meta']['client']['sensor']['modified'] = gs_sensor[4]
         container['meta']['client']['sensor']['conversiondown'] = gs_sensor[5]
         container['meta']['client']['sensor']['conversionup'] = gs_sensor[6]
