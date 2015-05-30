@@ -72,7 +72,7 @@ bool Options::process()
       return false;
     }
   }
-  if(vm_.count("input-file")) {
+  if(!info_ && vm_.count("input-file")) {
     json_files_ = vm_["input-file"].as<std::vector<std::string>>();
     for(std::vector<std::string>::iterator it = json_files_.begin();
         it < json_files_.end(); ++it) {
