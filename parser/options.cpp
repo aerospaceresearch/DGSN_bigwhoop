@@ -25,6 +25,7 @@ void Options::init(int argc, const char * const * const argv)
     ("help,h", "print help message")
     ("version", "print version")
     ("no-db-checks,c", "skip database checks")
+    ("no-url-checks", "skip url checks")
     ("no-remove-duplicates,d", "do not remove duplicate entries")
     ("info,i", "print information about JSON file and current database")
     ("quiet,q", "quiet output")
@@ -53,6 +54,9 @@ bool Options::process()
   }
   if(vm_.count("no-db-checks")) {
     db_checks_ = false;
+  }
+  if(vm_.count("no-url-checks")) {
+    url_checks_ = false;
   }
   if(vm_.count("no-remove-duplicates")) {
     remove_duplicates_ = false;

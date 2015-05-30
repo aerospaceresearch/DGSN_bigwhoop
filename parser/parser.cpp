@@ -10,6 +10,7 @@
 #include "log.hpp"
 #include "main.hpp"
 #include "parser.hpp"
+#include "options.hpp"
 
 /**
  * @brief Overload operator << for a nicer syntax.
@@ -101,11 +102,13 @@ void Parser::query(soci::session& sql) const
         throw std::runtime_error("URL is too long");
       }
 
-      boost::regex rgx_url(R"((www\.|(news|(ht|f)tp(s?))\://){1}\S+)");
-      boost::regex rgx_email(R"([\w-]+@([\w-]+\.)+[\w-]+)");
-      if (!boost::regex_match(url, rgx_url)) {
-        if (!boost::regex_match(url, rgx_email)) {
-          throw std::runtime_error("URL is not formatted correctly");
+      if(Options::get_instance().url_checks()) {
+        boost::regex rgx_url(R"((www\.|(news|(ht|f)tp(s?))\://){1}\S+)");
+        boost::regex rgx_email(R"([\w-]+@([\w-]+\.)+[\w-]+)");
+        if (!boost::regex_match(url, rgx_url)) {
+          if (!boost::regex_match(url, rgx_email)) {
+            throw std::runtime_error("URL is not formatted correctly");
+          }
         }
       }
     }

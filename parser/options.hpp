@@ -22,6 +22,7 @@ class Options
     bool process();
 
     bool db_checks() const { return db_checks_; }
+    bool url_checks() const { return url_checks_; }
     bool remove_duplicates() const { return remove_duplicates_; }
     bool info() const { return info_; }
     log::level loglevel() const { return loglevel_; }
@@ -42,6 +43,7 @@ class Options
 
     log::level loglevel_ = LOG_LEVEL;
     bool db_checks_ = true;
+    bool url_checks_ = true;
     bool remove_duplicates_ = true;
     bool info_ = false;
     std::vector<std::string> json_files_;
