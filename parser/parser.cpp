@@ -2,9 +2,11 @@
 #include <sqlite3/soci-sqlite3.h>
 
 #include <boost/regex.hpp>
+#include <boost/lexical_cast.hpp>
 #include <chrono>
 #include <exception>
 #include <string>
+#include <sstream>
 #include <cstring>
 
 #include "log.hpp"
@@ -74,12 +76,24 @@ void Parser::query(soci::session& sql) const
       = metadata["client"].get("id", "<no entry>").asString();
     const std::string client_name
       = metadata["client"].get("name", "<no entry>").asString();
-    const int sensor_id
-      = metadata["client"]["sensor"].get("id", 0).asInt();
     const std::string sensor_name
       = metadata["client"]["sensor"].get("name", "<no entry>").asString();
-    const int sensor_ppm
-      = metadata["client"]["sensor"].get("ppm", 0).asInt();
+    int sensor_id = 0;
+    try {
+      sensor_id = boost::lexical_cast<int>
+        (metadata["client"]["sensor"].get("id", 0).asInt());
+    } catch(std::exception& exception) {
+      sensor_id = boost::lexical_cast<int>
+        (metadata["client"]["sensor"].get("id", 0).asString());
+    }
+    int sensor_ppm = 0;
+    try {
+      sensor_ppm = boost::lexical_cast<int>
+        (metadata["client"]["sensor"].get("ppm", 0).asInt());
+    } catch(std::exception& exception) {
+      sensor_ppm = boost::lexical_cast<int>
+        (metadata["client"]["sensor"].get("ppm", 0).asString());
+    }
     const std::string sensor_antenna
       = metadata["client"]["sensor"]
       .get("antenna", "<no entry>").asString();
