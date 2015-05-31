@@ -128,6 +128,11 @@ void Parser::query(soci::session& sql) const
 
     if(client_id_hash.length() != 56u) {
       throw std::runtime_error("Id hash has wrong size");
+
+      if(client_id_hash.find_first_not_of("0123456789abcdefABCDEF", 0)
+          != std::string::npos) {
+        throw std::runtime_error("Id hash is not a hex value");
+      }
     }
     if(client_name.length() > MAX_STR_LENGTH) {
       throw std::runtime_error("Client name is too long");
