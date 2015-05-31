@@ -355,7 +355,6 @@ static void check_database(soci::session& sql)
       = std::chrono::duration_cast<duration_unit>(end-start).count();
     log::write(log::level::debug, " done [%d%s]\n", duration,
         duration_unit_string);
-    std::cout << duration << std::endl;
   } else {
     end = std::chrono::system_clock::now();
     unsigned long duration
