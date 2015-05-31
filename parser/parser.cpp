@@ -170,12 +170,9 @@ void Parser::query(soci::session& sql) const
       const double amp_mean
         = datasets[data_index].get("mean_amplitude", 0.0).asDouble();
 
-      // TODO: Sanity checks:
-      //  • client_id_hash is hex
       if(time < 0.0f) {
         throw std::runtime_error("Timestamp is negative");
       }
-      // TODO: Update reference timestamp at first release
       if(time < 1428173820.0) {
         std::cout << std::endl << std::fixed << time << std::endl;
         throw std::runtime_error("Timestamp is too old");
@@ -250,7 +247,9 @@ void Parser::query(soci::session& sql) const
         duration_unit_string);
   }
   {
-    // TODO: Insert entries only once
+    // Entries might be inserted multiple times.
+    // If --no-remove-duplicates is not provided, duplicate entries will be
+    // cleaned up in a different step.
     constexpr const char* const scan_mode = "analyze_adsb";
     const Json::Value& datasets = root_["data"]["dataset"][scan_mode];
     size_t count_datasets = datasets.size();
@@ -268,10 +267,6 @@ void Parser::query(soci::session& sql) const
         = datasets[data_index].get("lon", 0.0f).asFloat();
       const double time
         = datasets[data_index].get("timestamp", 0.0f).asDouble();
-
-      // TODO: Sanity checks:
-      //       • amp_mean <= amp_max
-      //       • timestamp > 0
 
       sql << "INSERT INTO adsb (time, "
              "location_alt, location_lat, location_lon) "
