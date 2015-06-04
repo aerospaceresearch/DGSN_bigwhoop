@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 
-#include <jsoncpp/json/json.h>
+#include <json/json.h>
 
 /**
  * @class Parser

@@ -3,7 +3,7 @@ SRC = main.cpp parser.cpp log.cpp options.cpp
 OBJ = ${SRC:.cpp=.o}
 
 INCS = -I/usr/local/include/soci
-LIBS = -ljsoncpp -lsoci_core -lsoci_sqlite3 -Wl,-rpath=/usr/local/lib64/\
+LIBS = -ljsoncpp -L/usr/local/lib64/ -lsoci_core -lsoci_sqlite3\
 			 -lboost_program_options -lboost_regex
 CFLAGS = -std=c99 -Os
 CPPFLAGS = -std=c++11 -Os ${INCS} -Wunused
