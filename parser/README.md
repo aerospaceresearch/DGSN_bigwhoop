@@ -78,16 +78,16 @@ longitude as floating point values.
 
 #### Table section: client in data
 
-| .. | client_id_hash | client_name | sensor_id | sensor_name | sensor_antenna | sensor_ppm | wu | url | .. |
-|---:|---------------:|------------:|----------:|------------:|---------------:|-----------:|---:|----:|---:|
-| .. |             .. |          .. |        .. |          .. |             .. |         .. | .. |  .. | .. |
+| .. | client_id_hash | client_name | sensor_id | sensor_name | sensor_antenna | sensor_ppm | wu_id | url | .. |
+|---:|---------------:|------------:|----------:|------------:|---------------:|-----------:|------:|----:|---:|
+| .. |             .. |          .. |        .. |          .. |             .. |         .. |    .. |  .. | .. |
 
 Currently the client data is stored for each measurement point. It
 contains the unique *client_id_hash*. *client_name*, *sensor_name*,
 *sensor_antenna* and *url* are user defined values for providing a basic
 context for the recorded data. *url* can be an e-mail address or an actual
 URL. *sensor_id* is currently provided by the user. It is the index of the
-sensor on the current device. *wu* holds the work unit id provided in the
+sensor on the current device. *wu_id* holds the work unit id provided in the
 *workunit.xml* for the client.
 
 
