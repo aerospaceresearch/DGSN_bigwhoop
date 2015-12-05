@@ -1,3 +1,4 @@
+
 PRO = parser
 SRC = main.cpp parser.cpp log.cpp options.cpp
 OBJ = ${SRC:.cpp=.o}
@@ -13,7 +14,7 @@ CC = g++
 all: ${PRO}
 
 options:
-	@echo parser build options:
+	@echo ${PRO} build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "CPPFLAGS = ${CPPFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
